@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ExecutionerClass {
 
-    Scanner scanner = new Scanner(System.in);
+
 
     public static void main(String[] args){
 
@@ -37,7 +37,7 @@ public class ExecutionerClass {
     }
 
     private void createBankAccount(){
-
+        Scanner scanner = new Scanner(System.in);
         String personId,name,address,birthDate,contactNumber,emailId,photoAddressId;
         System.out.println("Enter Person ID : ");
         personId = scanner.nextLine();
@@ -53,17 +53,13 @@ public class ExecutionerClass {
         emailId = scanner.nextLine();
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
-
-
-
-
         Customer customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
-
-
-
-
-        ArrayList <Customer> customers = new ArrayList <Customer>();
+        //Customer customer = new Customer("asdas","adas","4twt","fghg","asdasd","ertret","asdasd");
+        ArrayList <Customer> customers = new ArrayList <>();
         customers.add(customer);
+        System.out.println("Account Created");
 
     }
+
+
 }
