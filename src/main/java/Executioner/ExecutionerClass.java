@@ -8,8 +8,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ExecutionerClass {
+
+    Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args){
-       System.out.println("How can we help you?");
+
+        ExecutionerClass executionerClass = new ExecutionerClass();
+
+        System.out.println("How can we help you?");
        System.out.println("Please select any of the following option.");
        System.out.println("1.Create Bank Account");
        System.out.println("2.View Account Details");
@@ -22,8 +28,42 @@ public class ExecutionerClass {
        int id = scanner.nextInt();
        switch (id){
            case 1 :
-               System.out.println("Enter Customer ID : ");
-               String temp = scanner.nextLine();
+               executionerClass.createBankAccount();
+               return;
        }
+
+
+
+    }
+
+    private void createBankAccount(){
+
+        String personId,name,address,birthDate,contactNumber,emailId,photoAddressId;
+        System.out.println("Enter Person ID : ");
+        personId = scanner.nextLine();
+        System.out.println("Enter Name : ");
+        name = scanner.nextLine();
+        System.out.println("Enter Address : ");
+        address = scanner.nextLine();
+        System.out.println("Enter Date of birth : ");
+        birthDate = scanner.nextLine();
+        System.out.println("Enter Contact Number : ");
+        contactNumber = scanner.nextLine();
+        System.out.println("Enter E-mail ID : ");
+        emailId = scanner.nextLine();
+        System.out.println("Enter ID Number : ");
+        photoAddressId = scanner.nextLine();
+
+
+
+
+        Customer customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
+
+
+
+
+        ArrayList <Customer> customers = new ArrayList <Customer>();
+        customers.add(customer);
+
     }
 }

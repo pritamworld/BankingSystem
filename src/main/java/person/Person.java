@@ -8,6 +8,18 @@ public class Person {
     private String contactNumber;
     private String emailId;
 
+    public Person() {
+    }
+
+    public Person(String personId, String personName, String address, String birthDate, String contactNumber, String emailId) {
+        this.personId = personId;
+        this.personName = personName;
+        this.address = address;
+        this.birthDate = birthDate;
+        this.contactNumber = contactNumber;
+        this.emailId = emailId;
+    }
+
     public String getPersonId() {
         return personId;
     }
