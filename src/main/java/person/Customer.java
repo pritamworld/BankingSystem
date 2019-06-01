@@ -8,6 +8,7 @@ public class Customer extends Person{
     private String photoAddressProofId;
 
     public Customer() {
+
     }
 
     public Customer(String photoAddressProofId) {

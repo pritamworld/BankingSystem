@@ -20,4 +20,5 @@ public class Employees extends Person {
     public void setSalary(float salary) {
         this.salary = salary;
     }
+
 }
