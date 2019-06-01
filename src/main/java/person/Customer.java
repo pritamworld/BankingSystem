@@ -4,6 +4,7 @@ public class Customer extends Person{
 
     private String photoAddressProofId;
     public Customer() {
+
     }
 
     public Customer(String personId, String personName, String address, String birthDate, String contactNumber, String emailId, String photoAddressProofId) {
