@@ -7,6 +7,17 @@ public class BankAccount {
     private String bankBranch;
     private float accountBalance;
 
+
+    public BankAccount() {
+    }
+
+    public BankAccount(String accountNumber, String accountType, String bankBranch, float accountBalance) {
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+        this.bankBranch = bankBranch;
+        this.accountBalance = accountBalance;
+    }
+
     public String getAccountNumber() {
         return accountNumber;
     }

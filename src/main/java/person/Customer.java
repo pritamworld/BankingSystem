@@ -1,5 +1,5 @@
 package person;
-
+import bank.BankAccount;
 public class Customer extends Person{
 
     private String photoAddressProofId;
@@ -18,6 +18,11 @@ public class Customer extends Person{
 
     public void setPhotoAddressProofId(String photoAddressProofId) {
         this.photoAddressProofId = photoAddressProofId;
+    }
+
+    public float getAccountBalance(){
+        BankAccount bankAccount = new BankAccount();
+        return 0.0f;
     }
 
 }
