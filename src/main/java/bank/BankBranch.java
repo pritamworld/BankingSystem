@@ -28,6 +28,20 @@ public class BankBranch {
         amt=sc.nextLong();
         balance=balance+amt;
     }
+    void withdrawal()
+    {
+        long amt;
+        System.out.println("Enter Amount U Want to withdraw : ");
+        amt=sc.nextLong();
+        if(balance>=amt)
+        {
+            balance=balance-amt;
+        }
+        else
+        {
+            System.out.println("Less Balance..Transaction Failed..");
+        }
+    }
 
 
 
