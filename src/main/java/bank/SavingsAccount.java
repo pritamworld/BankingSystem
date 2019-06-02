@@ -2,6 +2,7 @@ package bank;
 
 public class SavingsAccount extends BankAccount
 {
+    private String personId;
     private float withdrawalLimit;
     private float transactionCharges;
     private float interestRate;
@@ -12,19 +13,39 @@ public class SavingsAccount extends BankAccount
     public SavingsAccount() {
     }
 
-    public SavingsAccount(int withdrawalLimit, int transactionCharges, float interestRate, float insufficientFundCharges) {
+    public SavingsAccount(String personId, float withdrawalLimit, float transactionCharges, float interestRate, float insufficientFundCharges, float minimumBalance) {
+        this.personId = personId;
         this.withdrawalLimit = withdrawalLimit;
         this.transactionCharges = transactionCharges;
         this.interestRate = interestRate;
         this.insufficientFundCharges = insufficientFundCharges;
+        this.minimumBalance = minimumBalance;
     }
 
-    public SavingsAccount(String accountNumber, String accountType, String bankBranch, float accountBalance, float withdrawalLimit, float transactionCharges, float interestRate, float insufficientFundCharges) {
+    public SavingsAccount(String accountNumber, String accountType, String bankBranch, float accountBalance, String personId, float withdrawalLimit, float transactionCharges, float interestRate, float insufficientFundCharges, float minimumBalance) {
         super(accountNumber, accountType, bankBranch, accountBalance);
+        this.personId = personId;
         this.withdrawalLimit = withdrawalLimit;
         this.transactionCharges = transactionCharges;
         this.interestRate = interestRate;
         this.insufficientFundCharges = insufficientFundCharges;
+        this.minimumBalance = minimumBalance;
+    }
+
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
+
+    public float getMinimumBalance() {
+        return minimumBalance;
+    }
+
+    public void setMinimumBalance(float minimumBalance) {
+        this.minimumBalance = minimumBalance;
     }
 
     public float getWithdrawalLimit() {
