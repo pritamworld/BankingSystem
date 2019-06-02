@@ -17,6 +17,11 @@ public class BankBranch {
         balance=sc.nextLong();
 
     }
+    void showAccount()
+    {
+        System.out.println(accountnumber+","+name+","+balance);
+    }
+
 
 
 
