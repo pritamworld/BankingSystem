@@ -3,8 +3,8 @@ import bank.CurrentAccount;
 import bank.SavingsAccount;
 import person.Customer;
 import bank.BankAccount;
+import person.Employee;
 
-import javax.swing.plaf.ColorUIResource;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +14,7 @@ public class ExecutionerClass {
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     private ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
     private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
+    private ArrayList<Employee> employees = new ArrayList<>();
     private CurrentAccount currentAccount = new CurrentAccount();
     private SavingsAccount savingsAccount = new SavingsAccount();
     private Customer customer;
@@ -23,16 +24,17 @@ public class ExecutionerClass {
 
         ExecutionerClass executionerClass = new ExecutionerClass();
         executionerClass.onCreate();
+
         int choice = 0;
         do {
             System.out.println("How can we help you?");
             System.out.println("Please select any of the following option.");
-            System.out.println("1.Create Bank Account");
-            System.out.println("2.View Account Details");
+            System.out.println("1. Create Bank Account");
+            System.out.println("2. View Account Details");
             System.out.println("3. Withdrawl");
             System.out.println("4. Deposit");
             System.out.println("5. Delete Bank Account");
-            System.out.println("6.Add Manager");
+            System.out.println("6. Add Employee");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -81,14 +83,19 @@ public class ExecutionerClass {
                     choice = scanner.nextInt();
                     scanner.nextLine();
                     break;
-                default:
+                case 6 :
+                    /*System.out.println("Enter your credentials");
+                    System.out.println("Enter username");
+                    System.out.println("Enter password");*/
+                    executionerClass.addEmployees();
+
+                    default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
         } while (choice == 0);
 
 
     }
-
     private void onCreate(){
         customer = new Customer("1", "Abhishek", "Brampton", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
         customers.add(customer);
@@ -99,7 +106,6 @@ public class ExecutionerClass {
         savingsAccount = new SavingsAccount ("98745","Savings","North York", 1300.00f,"2",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
 
-        //    accountNumber, accountType, bankBranch, accountBalance, personId, withdrawalLimit, transactionCharges,  interestRate,  insufficientFundCharges,  minimumBalance) {
         //------------------------------------
 
         customer = new Customer("0", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
@@ -314,5 +320,34 @@ public class ExecutionerClass {
             return accountType;
         else
             return "";
+    }
+    private void addEmployees(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Person ID : ");
+        String personId = scanner.nextLine();
+        System.out.println("Enter Person Name : ");
+        String personName = scanner.nextLine();
+        System.out.println("Enter Address");
+        String address = scanner.nextLine();
+        System.out.println("Enter Date of birth : ");
+        String birthDate = scanner.nextLine();
+        System.out.println("Enter Contact Number : ");
+        String contactNunmber = scanner.nextLine();
+        System.out.println("Enter E-mail ID : ");
+        String email = scanner.nextLine();
+        System.out.println("Enter Designation");
+        String designation = scanner.nextLine();
+        System.out.println("Enter Salary : ");
+        float salary = scanner.nextFloat();
+        scanner.nextLine();
+        System.out.println("Enter Username : ");
+        String userName = scanner.nextLine();
+        System.out.println("Enter Password : ");
+        String password = scanner.nextLine();
+        System.out.println("Enter Bank Branch : ");
+        String bankBranch = scanner.nextLine();
+        Employee employee = new Employee(personId,personName,address,birthDate,contactNunmber,email,designation,salary,userName,password,bankBranch);
+        employees.add(employee);
+
     }
 }
