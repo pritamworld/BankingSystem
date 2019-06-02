@@ -42,6 +42,15 @@ public class BankBranch {
             System.out.println("Less Balance..Transaction Failed..");
         }
     }
+    boolean search(String acn)
+    {
+        if(accountnumber.equals(acn))
+        {
+            showAccount();
+            return(true);
+        }
+        return(false);
+    }
 
 
 
