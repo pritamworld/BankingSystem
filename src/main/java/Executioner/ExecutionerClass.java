@@ -1,7 +1,10 @@
 package Executioner;
+import bank.CurrentAccount;
+import bank.SavingsAccount;
 import person.Customer;
 import bank.BankAccount;
 
+import javax.swing.plaf.ColorUIResource;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +12,12 @@ public class ExecutionerClass {
 
     ArrayList<Customer> customers = new ArrayList<>();
     ArrayList<BankAccount> bankAccounts = new ArrayList<>();
+    ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
+    ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
+    private CurrentAccount currentAccount = new CurrentAccount();
+    private SavingsAccount savingsAccount = new SavingsAccount();
+    private Customer customer;
+    private BankAccount bankAccount;
 
     public static void main(String[] args) {
 
@@ -97,26 +106,41 @@ public class ExecutionerClass {
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
         Customer customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);*/
-        Customer customer = new Customer("0", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
-        customers.add(customer);
-        customer = new Customer("1", "Abhishek", "Brampton", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
-        customers.add(customer);
-        customer = new Customer("2", "Ashish", "Markham Road", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
-        customers.add(customer);
-        BankAccount bankAccount = new BankAccount("67267809033", "Current", "North York", 1200);
-        bankAccounts.add(bankAccount);
-        bankAccount = new BankAccount("12345", "Current", "North York", 2000);
-        bankAccounts.add(bankAccount);
-        bankAccount = new BankAccount("98745", "Savings", "North York", 2500);
-        bankAccounts.add(bankAccount);
+        System.out.println("1. Savings Account");
+        System.out.println("2. Current Account");
+        Scanner scanner = new Scanner(System.in);
+        int bankTypeChoice = scanner.nextInt();
+        scanner.nextLine();
+        switch(bankTypeChoice){
+            case 1 :
+                customer = new Customer("1", "Abhishek", "Brampton", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+                customers.add(customer);
+                customer = new Customer("2", "Ashish", "Markham Road", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+                customers.add(customer);
+                savingsAccount = new SavingsAccount ("12345","Savings","North York", 1500.00f,5000.00f,0.00f,5.50f,1.00f);
+                savingsAccounts.add(savingsAccount);
+                savingsAccount = new SavingsAccount ("98745","Savings","North York", 1200.00f,5000.00f,0.00f,5.50f,1.00f);
+                savingsAccounts.add(savingsAccount);
+                break;
+            case 2 :
+                customer = new Customer("0", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+                customers.add(customer);
+                currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,5000.00f,0.00f,5.50f,1.00f);
+                currentAccounts.add(currentAccount);
+                break;
+                default:System.out.println("Please select a proper option. ");
+
+        }
         System.out.println("Account Created");
 
     }
 
     private void displayAccountDetails(String accountNumber) {
-        for (int i = 0; i < bankAccounts.size(); i++) {
-            if (bankAccounts.get(i).getAccountNumber().equals(accountNumber)) {
-                System.out.println("Account Number : " + bankAccounts.get(i).getAccountNumber());
+
+        for (int i = 0; i < savingsAccounts.size(); i++) {
+            if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                System.out.println("Savings Account");
+                System.out.println("Account Number : " + savingsAccounts.get(i).getAccountNumber());
                 System.out.println("Customer ID : " + customers.get(i).getPersonId());
                 System.out.println("Customer Name : " + customers.get(i).getPersonName());
                 System.out.println("Customer Address : " + customers.get(i).getAddress());
@@ -124,39 +148,120 @@ public class ExecutionerClass {
                 System.out.println("Customer Contact Number : " + customers.get(i).getContactNumber());
                 System.out.println("Customer Email ID : " + customers.get(i).getEmailId());
                 System.out.println("Customer ID Proof Number : " + customers.get(i).getPhotoAddressProofId());
-                System.out.println("Account Type : " + bankAccounts.get(i).getAccountType());
-                System.out.println("Account Main Branch : " + bankAccounts.get(i).getBankBranch());
-                System.out.println("Account Balance : " + bankAccounts.get(i).getAccountBalance());
+                System.out.println("Account Type : " + savingsAccounts.get(i).getAccountType());
+                System.out.println("Account Main Branch : " + savingsAccounts.get(i).getBankBranch());
+                System.out.println("Account Balance : " + savingsAccounts.get(i).getAccountBalance());
+                System.out.println("Withdrawl Limit : " + savingsAccounts.get(i).getWithdrawalLimit());
+                System.out.println("Transaction Charges : " + savingsAccounts.get(i).getTransactionCharges());
+                System.out.println("Interest Rate : " + savingsAccounts.get(i).getInterestRate());
+                System.out.println("Insufficient Balance Charges : " + savingsAccounts.get(i).getInsufficientFundCharges());
+            }
+        }
+        System.out.println(currentAccounts.get(0).getAccountNumber());
+        for (int i = 0; i < currentAccounts.size(); i++) {
+            if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                System.out.println("Current Account");
+                System.out.println("Account Number : " + currentAccounts.get(i).getAccountNumber());
+                System.out.println("Customer ID : " + customers.get(i).getPersonId());
+                System.out.println("Customer Name : " + customers.get(i).getPersonName());
+                System.out.println("Customer Address : " + customers.get(i).getAddress());
+                System.out.println("Customer Date of Birth : " + customers.get(i).getBirthDate());
+                System.out.println("Customer Contact Number : " + customers.get(i).getContactNumber());
+                System.out.println("Customer Email ID : " + customers.get(i).getEmailId());
+                System.out.println("Customer ID Proof Number : " + customers.get(i).getPhotoAddressProofId());
+                System.out.println("Account Type : " + currentAccounts.get(i).getAccountType());
+                System.out.println("Account Main Branch : " + currentAccounts.get(i).getBankBranch());
+                System.out.println("Account Balance : " + currentAccounts.get(i).getAccountBalance());
+                System.out.println("Withdrawl Limit : " + currentAccounts.get(i).getWithdrawalLimit());
+                System.out.println("Transaction Charges : " + currentAccounts.get(i).getTransactionCharges());
+                System.out.println("Interest Rate : " + currentAccounts.get(i).getInterestRate());
+                System.out.println("Insufficient Balance Charges : " + currentAccounts.get(i).getInsufficientFundCharges());
             }
         }
     }
 
     private void withdrawl(String accountNumber, float amount) {
-        for (int i = 0; i < bankAccounts.size(); i++) {
-            if (bankAccounts.get(i).getAccountNumber().equals(accountNumber)) {
-                float temp = bankAccounts.get(i).getAccountBalance();
-                temp = temp-amount;
-                bankAccounts.get(i).setAccountBalance(temp);
-                System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+
+        String accountType = getAccountType(accountNumber);
+        if(accountType.equals("Savings")){
+            for (int i = 0; i < savingsAccounts.size(); i++) {
+                if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    float temp = savingsAccounts.get(i).getAccountBalance();
+                    temp = temp-amount;
+                    savingsAccounts.get(i).setAccountBalance(temp);
+                    System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
                 }
+            }
         }
+        else if(accountType.equals("Current")){
+            for (int i = 0; i < currentAccounts.size(); i++) {
+                if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    float temp = currentAccounts.get(i).getAccountBalance();
+                    temp = temp-amount;
+                    currentAccounts.get(i).setAccountBalance(temp);
+                    System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+                }
+            }
+        }
+
     }
     private void deposit(String accountNumber, float amount) {
-        for (int i = 0; i < bankAccounts.size(); i++) {
-            if (bankAccounts.get(i).getAccountNumber().equals(accountNumber)) {
-                float temp = bankAccounts.get(i).getAccountBalance();
-                temp = temp+amount;
-                bankAccounts.get(i).setAccountBalance(temp);
-                System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+        String accountType = getAccountType(accountNumber);
+        if(accountType.equals("Savings")){
+            for (int i = 0; i < savingsAccounts.size(); i++) {
+                if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    float temp = savingsAccounts.get(i).getAccountBalance();
+                    temp = temp+amount;
+                    savingsAccounts.get(i).setAccountBalance(temp);
+                    System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+                }
+            }
+        }
+        else if(accountType.equals("Current")){
+            for (int i = 0; i < currentAccounts.size(); i++) {
+                if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    float temp = currentAccounts.get(i).getAccountBalance();
+                    temp = temp+amount;
+                    currentAccounts.get(i).setAccountBalance(temp);
+                    System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+                }
             }
         }
     }
     private void deleteBankAccount(String accountNumber){
-        for (int i = 0; i < bankAccounts.size(); i++) {
-            if (bankAccounts.get(i).getAccountNumber().equals(accountNumber)) {
-                bankAccounts.remove(i);
-                System.out.println("Account("+accountNumber+") Deleted Successfully" );
+        String accountType = getAccountType(accountNumber);
+        if(accountType.equals("Savings")){
+            for (int i = 0; i < savingsAccounts.size(); i++) {
+                if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    savingsAccounts.remove(i);
+                    System.out.println("Account("+accountNumber+") Deleted Successfully" );
+                }
             }
         }
+        else if(accountType.equals("Current")){
+            for (int i = 0; i < currentAccounts.size(); i++) {
+                if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    currentAccounts.remove(i);
+                    System.out.println("Account("+accountNumber+") Deleted Successfully" );
+                }
+            }
+        }
+    }
+    private String getAccountType(String accountNumber){
+        String accountType = "";
+        for(int i = 0;i<savingsAccounts.size();i++){
+            if(savingsAccounts.get(i).getAccountNumber().equals(accountNumber))
+                accountType = "Savings";
+        }
+        for(int i = 0;i<currentAccounts.size();i++){
+            if(currentAccounts.get(i).getAccountNumber().equals(accountNumber))
+                accountType = "Current";
+        }
+        if(accountType.equals("Current"))
+            return accountType;
+        else if(accountType.equals("Savings"))
+            return accountType;
+        else
+            return "";
     }
 }

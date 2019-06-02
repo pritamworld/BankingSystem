@@ -3,7 +3,7 @@ package bank;
 
 import java.util.Scanner;
 
-public class BankBranch {
+public class Bank {
     private String accountnumber;
     private String name;
     private long balance;
