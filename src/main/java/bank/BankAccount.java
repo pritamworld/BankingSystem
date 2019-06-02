@@ -6,6 +6,8 @@ public class BankAccount {
     private String accountType;
     private String bankBranch;
     private float accountBalance;
+    private float InterestRate;
+    private float annualInterestRate;
 
 
     public BankAccount() {
@@ -48,5 +50,21 @@ public class BankAccount {
 
     public void setAccountBalance(float accountBalance) {
         this.accountBalance = accountBalance;
+    }
+
+    public float getIntrestRate() {
+        return InterestRate;
+    }
+
+    public void setIntrestRate(float intrestRate) {
+        InterestRate = intrestRate;
+    }
+
+    public float getAnnualInterestRate() {
+        return annualInterestRate;
+    }
+
+    public void setAnnualInterestRate(float annualIntrestRate) {
+        this.annualInterestRate = annualIntrestRate;
     }
 }
