@@ -21,6 +21,13 @@ public class BankBranch {
     {
         System.out.println(accountnumber+","+name+","+balance);
     }
+    void deposit()
+    {
+        long amt;
+        System.out.println("Enter Amount U Want to Deposit : ");
+        amt=sc.nextLong();
+        balance=balance+amt;
+    }
 
 
 
