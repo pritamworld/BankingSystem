@@ -7,7 +7,7 @@ public class BankAccount {
     private String bankBranch;
     private float accountBalance;
     private float InterestRate;
-    private float annualInterestRate;
+    private float insufficientFundCharges;
 
 
     public BankAccount() {
@@ -18,6 +18,7 @@ public class BankAccount {
         this.accountType = accountType;
         this.bankBranch = bankBranch;
         this.accountBalance = accountBalance;
+
     }
 
     public String getAccountNumber() {
@@ -52,19 +53,20 @@ public class BankAccount {
         this.accountBalance = accountBalance;
     }
 
-    public float getIntrestRate() {
+
+    public float getInterestRate() {
         return InterestRate;
     }
 
-    public void setIntrestRate(float intrestRate) {
-        InterestRate = intrestRate;
+    public void setInterestRate(float interestRate) {
+        InterestRate = interestRate;
     }
 
-    public float getAnnualInterestRate() {
-        return annualInterestRate;
+    public float getInsufficientFundCharges() {
+        return insufficientFundCharges;
     }
 
-    public void setAnnualInterestRate(float annualIntrestRate) {
-        this.annualInterestRate = annualIntrestRate;
+    public void setInsufficientFundCharges(float insufficientFundCharges) {
+        this.insufficientFundCharges = insufficientFundCharges;
     }
 }

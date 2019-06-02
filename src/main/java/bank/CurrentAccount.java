@@ -4,7 +4,7 @@ public class CurrentAccount extends BankAccount {
 
     private int withDrawalLimit;
     private int transactionCharges;
-    private int insufficentFundCharges;
+
 
 
     public int getWithDrawalLimit() {
@@ -23,13 +23,7 @@ public class CurrentAccount extends BankAccount {
         this.transactionCharges = transactionCharges;
     }
 
-    public int getInsufficentFundCharges() {
-        return insufficentFundCharges;
-    }
 
-    public void setInsufficentFundCharges(int insufficentFundCharges) {
-        this.insufficentFundCharges = insufficentFundCharges;
-    }
 
 
 

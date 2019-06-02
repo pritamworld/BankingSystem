@@ -5,9 +5,6 @@ public class SavingsAccount extends BankAccount
     private int withdrawalLimit;
     private int transactionCharges;
 
-
-
-
     public int getWithdrawalLimit() {
         return withdrawalLimit;
     }
