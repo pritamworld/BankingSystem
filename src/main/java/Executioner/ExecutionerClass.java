@@ -29,11 +29,17 @@ public class ExecutionerClass {
             switch (id) {
                 case 1:
                     executionerClass.createBankAccount();
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
                     break;
                 case 2:
                     System.out.println("Enter Account Number : ");
                     String accountNumber = scanner.nextLine();
                     executionerClass.displayAccountDetails(accountNumber);
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
                     break;
                 case 3:
                     System.out.println("Enter Account Number : ");
@@ -42,6 +48,21 @@ public class ExecutionerClass {
                     float amountToWithdraw = scanner.nextFloat();
                     scanner.nextLine();
                     executionerClass.withdrawl(accountNumber, amountToWithdraw);
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                case 4 :
+                    System.out.println("Enter Account Number : ");
+                    accountNumber = scanner.nextLine();
+                    System.out.println("Enter Amount to withdraw : ");
+                    float amountTDeposit = scanner.nextFloat();
+                    scanner.nextLine();
+                    executionerClass.deposit(accountNumber, amountTDeposit);
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
                 default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
@@ -110,6 +131,16 @@ public class ExecutionerClass {
                 bankAccounts.get(i).setAccountBalance(temp);
                 System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
                 }
+        }
+    }
+    private void deposit(String accountNumber, float amount) {
+        for (int i = 0; i < bankAccounts.size(); i++) {
+            if (bankAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                float temp = bankAccounts.get(i).getAccountBalance();
+                temp = temp+amount;
+                bankAccounts.get(i).setAccountBalance(temp);
+                System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+            }
         }
     }
 }
