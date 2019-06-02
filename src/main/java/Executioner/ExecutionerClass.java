@@ -21,8 +21,8 @@ public class ExecutionerClass {
             System.out.println("2.View Account Details");
             System.out.println("3. Withdrawl");
             System.out.println("4. Deposit");
-            System.out.println("5.Show All Bank Branches");
-            System.out.println("6. Delete Bank Account");
+            System.out.println("5. Delete Bank Account");
+            System.out.println("6.Show All Bank Branches");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -59,6 +59,14 @@ public class ExecutionerClass {
                     float amountTDeposit = scanner.nextFloat();
                     scanner.nextLine();
                     executionerClass.deposit(accountNumber, amountTDeposit);
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                case 5 :
+                    System.out.println("Enter Account Number : ");
+                    accountNumber = scanner.nextLine();
+                    executionerClass.deleteBankAccount(accountNumber);
                     System.out.println("Do you want to exit(1/0)? : ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
@@ -140,6 +148,14 @@ public class ExecutionerClass {
                 temp = temp+amount;
                 bankAccounts.get(i).setAccountBalance(temp);
                 System.out.println("Updated Balance of Account Number : " + accountNumber + " is "+temp );
+            }
+        }
+    }
+    private void deleteBankAccount(String accountNumber){
+        for (int i = 0; i < bankAccounts.size(); i++) {
+            if (bankAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                bankAccounts.remove(i);
+                System.out.println("Account("+accountNumber+") Deleted Successfully" );
             }
         }
     }

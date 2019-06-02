@@ -1,29 +1,11 @@
 package bank;
 
-public class CurrentAccount {
+public class CurrentAccount extends BankAccount {
 
-    private String accountNumber;
-    private float balance;
     private int withDrawalLimit;
     private int transactionCharges;
     private int insufficentFundCharges;
     private float intrestRate;
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public float getBalance() {
-        return balance;
-    }
-
-    public void setBalance(float balance) {
-        this.balance = balance;
-    }
 
     public int getWithDrawalLimit() {
         return withDrawalLimit;
