@@ -2,6 +2,7 @@ package Executioner;
 import bank.CurrentAccount;
 import bank.SavingsAccount;
 import bank.Transactions;
+import com.exception.InvalidPhoneException;
 import person.Customer;
 import bank.BankAccount;
 import person.Employee;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-public class ExecutionerClass {
+public class ExecutionerClass extends InvalidPhoneException {
 
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
@@ -172,6 +173,13 @@ public class ExecutionerClass {
         birthDate = scanner.nextLine();
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
+        try{
+            if(contactNumber.length()!=10)
+                throw new InvalidPhoneException("phone number should be a ten digit number");
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Enter E-mail ID : ");
         emailId = scanner.nextLine();
         System.out.println("Enter ID Number : ");
