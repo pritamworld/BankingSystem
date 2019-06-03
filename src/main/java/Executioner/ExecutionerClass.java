@@ -122,6 +122,15 @@ public class ExecutionerClass {
 
     }
     private void displayTransactions(String accountNumber){
+        for(int i = 0;i<transactions.size();i++){
+            if(transactions.get(i).getBeneficiaryAccountNumber().equals(accountNumber)){
+                System.out.println("Credited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
+            }
+            if(transactions.get(i).getPayerAccountNumber().equals(accountNumber)){
+                System.out.println("Debited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
+            }
+
+        }
 
     }
     private void onCreate(){
