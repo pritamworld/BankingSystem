@@ -3,13 +3,13 @@ import bank.CurrentAccount;
 import bank.SavingsAccount;
 import bank.Transactions;
 import com.exception.AgeException;
-import com.exception.EmailException;
 import com.exception.InvalidPhoneException;
 import com.exception.PhotoidException;
 import person.Customer;
 import bank.BankAccount;
 import person.Employee;
 
+import javax.xml.crypto.dsig.TransformService;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,7 +58,6 @@ public class ExecutionerClass   {
             System.out.println("6. Add Employee");
             System.out.println("7. View Employee Details");
             System.out.println("8. Transactions");
-            System.out.println("9. Transfer");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -127,15 +126,6 @@ public class ExecutionerClass   {
                     executionerClass.displayTransactions(accountNumber);System.out.println("Do you want to exit(1/0)? : ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
-                case 9 :
-                    System.out.println("Enter Beneficiary Account Number : ");
-                    String beneficiaryAccountNumber = scanner.nextLine();
-                    System.out.println("Enter Payer Account Number : ");
-                    String payerAccountNumber = scanner.nextLine();
-                    System.out.println("Enter Amount : ");
-                    float amount = scanner.nextFloat();
-                    scanner.nextLine();
-                    executionerClass.addTransactions(beneficiaryAccountNumber,payerAccountNumber,amount);
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
@@ -146,27 +136,10 @@ public class ExecutionerClass   {
     private void displayTransactions(String accountNumber){
         for(int i = 0;i<transactions.size();i++){
             if(transactions.get(i).getBeneficiaryAccountNumber().equals(accountNumber)){
-                if(transactions.get(i).getPayerAccountNumber().equals("CASH")){
-                    System.out.println("Withdrawn "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
-                }
-                else if(transactions.get(i).getBeneficiaryAccountNumber().equals("CASH")){
-                    System.out.println("Deposited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
-                }
-                else {
-                    System.out.println("Credited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate() + " from " + transactions.get(i).getPayerAccountNumber());
-                }
-
+                System.out.println("Credited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
             }
             if(transactions.get(i).getPayerAccountNumber().equals(accountNumber)){
-                if(transactions.get(i).getPayerAccountNumber().equals("CASH")){
-                    System.out.println("Withdrawn "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
-                }
-                else if(transactions.get(i).getBeneficiaryAccountNumber().equals("CASH")){
-                    System.out.println("Deposited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
-                }
-                else {
-                    System.out.println("Transferred "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate() + " to " + transactions.get(i).getBeneficiaryAccountNumber());
-                }
+                System.out.println("Debited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
             }
 
         }
@@ -297,10 +270,11 @@ public class ExecutionerClass   {
         if (l<18){
             throw new AgeException("age is below 18 years");
         }
+
+
         }
         catch (Exception e){
             System.out.println(e.getMessage());
-
         }
 
         System.out.println("Enter Contact Number : ");
@@ -326,7 +300,7 @@ public class ExecutionerClass   {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        System.out.println("Enter Photo and Address ID Number : ");
+        System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
         try{while(itrc.hasNext()){
             Customer a;
