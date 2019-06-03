@@ -158,7 +158,7 @@ public class ExecutionerClass {
                     foundBeneficiary=1;
                     if(currentAccounts.get(i).getAccountBalance()>=amount){
                         balanceAvailable=1;
-                        float balance = savingsAccounts.get(i).getAccountBalance();
+                        float balance = currentAccounts.get(i).getAccountBalance();
                         balance = balance - amount;
                         savingsAccounts.get(i).setAccountBalance(balance);
                     }
@@ -166,7 +166,58 @@ public class ExecutionerClass {
             }
         }
         String beneficiaryAccountType = getAccountType(beneficiaryAccountNumber);
-
+        if(accountType.equals("Savings")){
+            for(int i = 0;i<savingsAccounts.size();i++){
+                if(savingsAccounts.get(i).getAccountNumber().equals(beneficiaryAccountNumber)){
+                    foundBeneficiary=1;
+                    if(balanceAvailable==1){
+                        float balance = savingsAccounts.get(i).getAccountBalance();
+                        balance = balance + amount;
+                        savingsAccounts.get(i).setAccountBalance(balance);
+                    }
+                }
+            }
+        }
+        else if(accountType.equals("Current")){
+            for(int i = 0;i<currentAccounts.size();i++){
+                if(currentAccounts.get(i).getAccountNumber().equals(beneficiaryAccountNumber)){
+                    foundBeneficiary=1;
+                    if(balanceAvailable==1){
+                        float balance = currentAccounts.get(i).getAccountBalance();
+                        balance = balance + amount;
+                        currentAccounts.get(i).setAccountBalance(balance);
+                    }
+                }
+            }
+        }
+        if(foundPayer ==0){
+            System.out.println("Payer Account does not exists"); }
+        else if(foundBeneficiary==0){
+            System.out.println("Beneficiary Account Number does not exists");
+        }else if(balanceAvailable ==0){
+            System.out.println("Try lesser amount.");
+        }else {
+            addTransactions(beneficiaryAccountNumber,payerAccountNumber,amount);
+            accountType=getAccountType(payerAccountNumber);
+            if(accountType.equals("Savings")){
+                for(int i = 0;i<savingsAccounts.size();i++){
+                    if(savingsAccounts.get(i).getAccountNumber().equals(payerAccountNumber)){
+                            float balance = savingsAccounts.get(i).getAccountBalance();
+                            balance = balance - amount;
+                            savingsAccounts.get(i).setAccountBalance(balance);
+                    }
+                }
+            }
+            else if(accountType.equals("Current")){
+                for(int i = 0;i<currentAccounts.size();i++){
+                    if(currentAccounts.get(i).getAccountNumber().equals(payerAccountNumber)){
+                            float balance = currentAccounts.get(i).getAccountBalance();
+                            balance = balance - amount;
+                            savingsAccounts.get(i).setAccountBalance(balance);
+                    }
+                }
+            }
+        }
 
     }
     private void displayTransactions(String accountNumber){
