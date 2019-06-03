@@ -117,13 +117,13 @@ public class ExecutionerClass {
 
         //------------------------------------
 
-        customer = new Customer("0", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+        customer = new Customer("3", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
         customers.add(customer);
-        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"1",5000.0f,0.00f,5.50f,0.0f,100.00f);
+        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"3",5000.0f,0.00f,5.50f,0.0f,100.00f);
         currentAccounts.add(currentAccount);
 
         //-----------------------------------
-        Employee employee = new Employee("3","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
+        Employee employee = new Employee("4","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
         employees.add(employee);
     }
 
@@ -187,16 +187,16 @@ public class ExecutionerClass {
             for (int i = 0; i < savingsAccounts.size(); i++) {
                 if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
                     String personId = savingsAccounts.get(i).getPersonId();
-                    int customerIndex = getCustomerIndex(personId,accountType);
+                    int customerIndex = getCustomerIndex(personId);
                     System.out.println("Savings Account");
                     System.out.println("Account Number : " + savingsAccounts.get(i).getAccountNumber());
-                    System.out.println("Customer ID : " + customers.get(i).getPersonId());
-                    System.out.println("Customer Name : " + customers.get(i).getPersonName());
-                    System.out.println("Customer Address : " + customers.get(i).getAddress());
-                    System.out.println("Customer Date of Birth : " + customers.get(i).getBirthDate());
-                    System.out.println("Customer Contact Number : " + customers.get(i).getContactNumber());
-                    System.out.println("Customer Email ID : " + customers.get(i).getEmailId());
-                    System.out.println("Customer ID Proof Number : " + customers.get(i).getPhotoAddressProofId());
+                    System.out.println("Customer ID : " + customers.get(customerIndex).getPersonId());
+                    System.out.println("Customer Name : " + customers.get(customerIndex).getPersonName());
+                    System.out.println("Customer Address : " + customers.get(customerIndex).getAddress());
+                    System.out.println("Customer Date of Birth : " + customers.get(customerIndex).getBirthDate());
+                    System.out.println("Customer Contact Number : " + customers.get(customerIndex).getContactNumber());
+                    System.out.println("Customer Email ID : " + customers.get(customerIndex).getEmailId());
+                    System.out.println("Customer ID Proof Number : " + customers.get(customerIndex).getPhotoAddressProofId());
                     System.out.println("Account Type : " + savingsAccounts.get(i).getAccountType());
                     System.out.println("Account Main Branch : " + savingsAccounts.get(i).getBankBranch());
                     System.out.println("Account Balance : " + savingsAccounts.get(i).getAccountBalance());
@@ -210,15 +210,17 @@ public class ExecutionerClass {
         else if(accountType.equals("Current")){
             for (int i = 0; i < currentAccounts.size(); i++) {
                 if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    String personId = currentAccounts.get(i).getPersonId();
+                    int customerIndex = getCustomerIndex(personId);
                     System.out.println("Current Account");
                     System.out.println("Account Number : " + currentAccounts.get(i).getAccountNumber());
-                    System.out.println("Customer ID : " + customers.get(i).getPersonId());
-                    System.out.println("Customer Name : " + customers.get(i).getPersonName());
-                    System.out.println("Customer Address : " + customers.get(i).getAddress());
-                    System.out.println("Customer Date of Birth : " + customers.get(i).getBirthDate());
-                    System.out.println("Customer Contact Number : " + customers.get(i).getContactNumber());
-                    System.out.println("Customer Email ID : " + customers.get(i).getEmailId());
-                    System.out.println("Customer ID Proof Number : " + customers.get(i).getPhotoAddressProofId());
+                    System.out.println("Customer ID : " + customers.get(customerIndex).getPersonId());
+                    System.out.println("Customer Name : " + customers.get(customerIndex).getPersonName());
+                    System.out.println("Customer Address : " + customers.get(customerIndex).getAddress());
+                    System.out.println("Customer Date of Birth : " + customers.get(customerIndex).getBirthDate());
+                    System.out.println("Customer Contact Number : " + customers.get(customerIndex).getContactNumber());
+                    System.out.println("Customer Email ID : " + customers.get(customerIndex).getEmailId());
+                    System.out.println("Customer ID Proof Number : " + customers.get(customerIndex).getPhotoAddressProofId());
                     System.out.println("Account Type : " + currentAccounts.get(i).getAccountType());
                     System.out.println("Account Main Branch : " + currentAccounts.get(i).getBankBranch());
                     System.out.println("Account Balance : " + currentAccounts.get(i).getAccountBalance());
@@ -233,19 +235,12 @@ public class ExecutionerClass {
 
     }
 
-    private int getCustomerIndex(String personId,String accountType){
+    private int getCustomerIndex(String personId){
+        System.out.println("person "+personId);
         int flag=0;
-        if(accountType.equals("Savings")){
-            for(int i = 0;i<savingsAccounts.size();i++){
-                if(savingsAccounts.get(i).getPersonId().equals(personId))
-                    flag=i;
-            }
-        }
-        else if(accountType.equals("Current")){
-            for(int i = 0;i<currentAccounts.size();i++){
-                if(currentAccounts.get(i).getPersonId().equals(personId))
-                    flag=i;
-            }
+        for(int i = 0;i<customers.size();i++){
+            if(customers.get(i).getPersonId().equals(personId))
+                flag=i;
         }
         return flag;
     }
@@ -381,7 +376,7 @@ public class ExecutionerClass {
             System.out.println("Username : "+employees.get(flag).getUsername());
             System.out.println("Bank Branch : "+employees.get(flag).getBankBranch());
         }
-
-
     }
+
+    //private void addTransactions(String beneficiaryAccount)
 }
