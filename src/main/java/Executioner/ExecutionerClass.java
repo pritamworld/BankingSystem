@@ -35,6 +35,7 @@ public class ExecutionerClass {
             System.out.println("4. Deposit");
             System.out.println("5. Delete Bank Account");
             System.out.println("6. Add Employee");
+            System.out.println("7. View Employee Details");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -84,11 +85,19 @@ public class ExecutionerClass {
                     scanner.nextLine();
                     break;
                 case 6 :
-                    /*System.out.println("Enter your credentials");
-                    System.out.println("Enter username");
-                    System.out.println("Enter password");*/
                     executionerClass.addEmployees();
-
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                case 7:
+                    System.out.println("Enter Employee ID : ");
+                    String employeeId = scanner.nextLine();
+                    executionerClass.viewEmployees(employeeId);
+                    System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
@@ -112,6 +121,10 @@ public class ExecutionerClass {
         customers.add(customer);
         currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"1",5000.0f,0.00f,5.50f,0.0f,100.00f);
         currentAccounts.add(currentAccount);
+
+        //-----------------------------------
+        Employee employee = new Employee("3","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
+        employees.add(employee);
     }
 
     private void createBankAccount() {
@@ -348,6 +361,27 @@ public class ExecutionerClass {
         String bankBranch = scanner.nextLine();
         Employee employee = new Employee(personId,personName,address,birthDate,contactNunmber,email,designation,salary,userName,password,bankBranch);
         employees.add(employee);
+
+    }
+    private void viewEmployees(String employeeId){
+        int flag = -1;
+        for(int i =0;i<employees.size();i++){
+            if(employees.get(i).getPersonId().equals(employeeId))
+                flag=i;
+        }
+        if(flag!=-1){
+            System.out.println("Employee ID : "+employees.get(flag).getPersonId());
+            System.out.println("Name : "+employees.get(flag).getPersonName());
+            System.out.println("Address : "+employees.get(flag).getAddress());
+            System.out.println("Date of Birth : "+employees.get(flag).getBirthDate());
+            System.out.println("Contact Number : "+employees.get(flag).getContactNumber());
+            System.out.println("Email ID : "+employees.get(flag).getEmailId());
+            System.out.println("Designation : "+employees.get(flag).getDesignation());
+            System.out.println("Salary : "+employees.get(flag).getSalary());
+            System.out.println("Username : "+employees.get(flag).getUsername());
+            System.out.println("Bank Branch : "+employees.get(flag).getBankBranch());
+        }
+
 
     }
 }
