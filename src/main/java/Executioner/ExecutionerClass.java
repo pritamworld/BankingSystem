@@ -4,6 +4,7 @@ import bank.SavingsAccount;
 import bank.Transactions;
 import com.exception.AgeException;
 import com.exception.InvalidPhoneException;
+import com.exception.PhotoidException;
 import person.Customer;
 import bank.BankAccount;
 import person.Employee;
@@ -13,15 +14,15 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Period;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 import java.time.LocalDate;
-import java.util.Calendar;
 
-public class ExecutionerClass extends InvalidPhoneException,AgeException {
+public class ExecutionerClass   {
 
     private ArrayList<Customer> customers = new ArrayList<>();
+    Iterator<Customer>itr = customers .iterator();
+
+
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     private ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
     private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
@@ -34,7 +35,7 @@ public class ExecutionerClass extends InvalidPhoneException,AgeException {
     private Customer customer;
     private BankAccount bankAccount;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         ExecutionerClass executionerClass = new ExecutionerClass();
         executionerClass.onCreate();
@@ -202,8 +203,9 @@ public class ExecutionerClass extends InvalidPhoneException,AgeException {
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
         try{
-            if(contactNumber.length()!=10)
+            if(contactNumber.length()!=10) {
                 throw new InvalidPhoneException("phone number should be a ten digit number");
+            }
 
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -212,6 +214,19 @@ public class ExecutionerClass extends InvalidPhoneException,AgeException {
         emailId = scanner.nextLine();
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
+        try{while(itr.hasNext()){
+            Customer a;
+              a = itr.next();
+
+            if(photoAddressId.equalsIgnoreCase(a.getPhotoAddressProofId())){
+                throw new PhotoidException("photo id already exists");
+            }
+
+
+        }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
         customers.add(customer);
         System.out.println("1. Savings Account");
