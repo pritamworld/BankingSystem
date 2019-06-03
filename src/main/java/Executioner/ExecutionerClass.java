@@ -2,6 +2,7 @@ package Executioner;
 import bank.CurrentAccount;
 import bank.SavingsAccount;
 import bank.Transactions;
+import com.exception.AgeException;
 import com.exception.InvalidPhoneException;
 import person.Customer;
 import bank.BankAccount;
@@ -9,12 +10,16 @@ import person.Employee;
 
 import javax.xml.crypto.dsig.TransformService;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.Calendar;
 
-public class ExecutionerClass extends InvalidPhoneException {
+public class ExecutionerClass extends InvalidPhoneException,AgeException {
 
     private ArrayList<Customer> customers = new ArrayList<>();
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
@@ -160,7 +165,7 @@ public class ExecutionerClass extends InvalidPhoneException {
         addTransactions("67267809033","CASH",2000);
     }
 
-    private void createBankAccount() {
+    private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         String personId,name,address,birthDate,contactNumber,emailId,photoAddressId;
         System.out.println("Enter Person ID : ");
@@ -171,6 +176,29 @@ public class ExecutionerClass extends InvalidPhoneException {
         address = scanner.nextLine();
         System.out.println("Enter Date of birth : ");
         birthDate = scanner.nextLine();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        Date d = sdf.parse(birthDate);
+        try {
+
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(d);
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int date = c.get(Calendar.DATE);
+        LocalDate l1 = LocalDate.of(year, month, date);
+        LocalDate now1 = LocalDate.now();
+        Period diff1 = Period.between(l1, now1);
+        if (diff1.getYears()<18){
+            throw new AgeException("age is below 18 years");
+        }
+
+
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
         try{
