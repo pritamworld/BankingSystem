@@ -146,13 +146,11 @@ public class ExecutionerClass   {
 
     }
     private void onCreate(){
-        customer = new Customer("1", "Abhishek", "Brampton", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+
         customer = new Customer("1", "Abhishek_madgeporu", "Brampton", "03/08/1995", "+14372391989", "abhishek1234@gmail.com", "15/1995/2018");
         customers.add(customer);
-        customer = new Customer("2", "Ashish", "Markham Road", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
         customer = new Customer("2", "Ashish_pradeesh", "Markham Road", "05/08/1995", "+146783919123", "ashishpradeeshl@gmail.com", "16/1996/2019");
         customers.add(customer);
-        savingsAccount = new SavingsAccount ("12345","Savings","North York", 1500.00f,"1",5000.00f,0.00f,5.50f,1.00f,100.00f);
         customer = new Customer("3", "joyal_paul", "8 sheppard east Road", "10/07/1998", "+143723912346", "joyalmnnns@gmail.com", "14/1994/2018");
         customers.add(customer);
         customer = new Customer("4", "basil_thomas", "10 sheppard Road", "05/09/1999", "+14372391459", "basil123@gmail.com", "1/1997/2018");
