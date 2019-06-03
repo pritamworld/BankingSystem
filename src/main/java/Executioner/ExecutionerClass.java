@@ -1,11 +1,16 @@
 package Executioner;
 import bank.CurrentAccount;
 import bank.SavingsAccount;
+import bank.Transactions;
 import person.Customer;
 import bank.BankAccount;
 import person.Employee;
 
+import javax.xml.crypto.dsig.TransformService;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class ExecutionerClass {
@@ -14,9 +19,12 @@ public class ExecutionerClass {
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     private ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
     private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
+    private ArrayList<Transactions> transactions = new ArrayList<>();
     private ArrayList<Employee> employees = new ArrayList<>();
     private CurrentAccount currentAccount = new CurrentAccount();
     private SavingsAccount savingsAccount = new SavingsAccount();
+    Transactions transaction = new Transactions();
+
     private Customer customer;
     private BankAccount bankAccount;
 
@@ -24,7 +32,8 @@ public class ExecutionerClass {
 
         ExecutionerClass executionerClass = new ExecutionerClass();
         executionerClass.onCreate();
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
         int choice = 0;
         do {
             System.out.println("How can we help you?");
@@ -36,6 +45,7 @@ public class ExecutionerClass {
             System.out.println("5. Delete Bank Account");
             System.out.println("6. Add Employee");
             System.out.println("7. View Employee Details");
+            System.out.println("8. Transactions");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -98,11 +108,20 @@ public class ExecutionerClass {
                     choice = scanner.nextInt();
                     scanner.nextLine();
                     break;
+                case 8 :
+                    System.out.println("Enter Account Number : ");
+                    accountNumber = scanner.nextLine();
+                    executionerClass.displayTransactions(accountNumber);System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
         } while (choice == 0);
 
+
+    }
+    private void displayTransactions(String accountNumber){
 
     }
     private void onCreate(){
@@ -117,14 +136,18 @@ public class ExecutionerClass {
 
         //------------------------------------
 
-        customer = new Customer("0", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+        customer = new Customer("3", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
         customers.add(customer);
-        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"1",5000.0f,0.00f,5.50f,0.0f,100.00f);
+        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"3",5000.0f,0.00f,5.50f,0.0f,100.00f);
         currentAccounts.add(currentAccount);
 
         //-----------------------------------
-        Employee employee = new Employee("3","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
+        Employee employee = new Employee("4","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
         employees.add(employee);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
     }
 
     private void createBankAccount() {
@@ -187,16 +210,16 @@ public class ExecutionerClass {
             for (int i = 0; i < savingsAccounts.size(); i++) {
                 if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
                     String personId = savingsAccounts.get(i).getPersonId();
-                    int customerIndex = getCustomerIndex(personId,accountType);
+                    int customerIndex = getCustomerIndex(personId);
                     System.out.println("Savings Account");
                     System.out.println("Account Number : " + savingsAccounts.get(i).getAccountNumber());
-                    System.out.println("Customer ID : " + customers.get(i).getPersonId());
-                    System.out.println("Customer Name : " + customers.get(i).getPersonName());
-                    System.out.println("Customer Address : " + customers.get(i).getAddress());
-                    System.out.println("Customer Date of Birth : " + customers.get(i).getBirthDate());
-                    System.out.println("Customer Contact Number : " + customers.get(i).getContactNumber());
-                    System.out.println("Customer Email ID : " + customers.get(i).getEmailId());
-                    System.out.println("Customer ID Proof Number : " + customers.get(i).getPhotoAddressProofId());
+                    System.out.println("Customer ID : " + customers.get(customerIndex).getPersonId());
+                    System.out.println("Customer Name : " + customers.get(customerIndex).getPersonName());
+                    System.out.println("Customer Address : " + customers.get(customerIndex).getAddress());
+                    System.out.println("Customer Date of Birth : " + customers.get(customerIndex).getBirthDate());
+                    System.out.println("Customer Contact Number : " + customers.get(customerIndex).getContactNumber());
+                    System.out.println("Customer Email ID : " + customers.get(customerIndex).getEmailId());
+                    System.out.println("Customer ID Proof Number : " + customers.get(customerIndex).getPhotoAddressProofId());
                     System.out.println("Account Type : " + savingsAccounts.get(i).getAccountType());
                     System.out.println("Account Main Branch : " + savingsAccounts.get(i).getBankBranch());
                     System.out.println("Account Balance : " + savingsAccounts.get(i).getAccountBalance());
@@ -210,15 +233,17 @@ public class ExecutionerClass {
         else if(accountType.equals("Current")){
             for (int i = 0; i < currentAccounts.size(); i++) {
                 if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    String personId = currentAccounts.get(i).getPersonId();
+                    int customerIndex = getCustomerIndex(personId);
                     System.out.println("Current Account");
                     System.out.println("Account Number : " + currentAccounts.get(i).getAccountNumber());
-                    System.out.println("Customer ID : " + customers.get(i).getPersonId());
-                    System.out.println("Customer Name : " + customers.get(i).getPersonName());
-                    System.out.println("Customer Address : " + customers.get(i).getAddress());
-                    System.out.println("Customer Date of Birth : " + customers.get(i).getBirthDate());
-                    System.out.println("Customer Contact Number : " + customers.get(i).getContactNumber());
-                    System.out.println("Customer Email ID : " + customers.get(i).getEmailId());
-                    System.out.println("Customer ID Proof Number : " + customers.get(i).getPhotoAddressProofId());
+                    System.out.println("Customer ID : " + customers.get(customerIndex).getPersonId());
+                    System.out.println("Customer Name : " + customers.get(customerIndex).getPersonName());
+                    System.out.println("Customer Address : " + customers.get(customerIndex).getAddress());
+                    System.out.println("Customer Date of Birth : " + customers.get(customerIndex).getBirthDate());
+                    System.out.println("Customer Contact Number : " + customers.get(customerIndex).getContactNumber());
+                    System.out.println("Customer Email ID : " + customers.get(customerIndex).getEmailId());
+                    System.out.println("Customer ID Proof Number : " + customers.get(customerIndex).getPhotoAddressProofId());
                     System.out.println("Account Type : " + currentAccounts.get(i).getAccountType());
                     System.out.println("Account Main Branch : " + currentAccounts.get(i).getBankBranch());
                     System.out.println("Account Balance : " + currentAccounts.get(i).getAccountBalance());
@@ -233,19 +258,12 @@ public class ExecutionerClass {
 
     }
 
-    private int getCustomerIndex(String personId,String accountType){
+    private int getCustomerIndex(String personId){
+        System.out.println("person "+personId);
         int flag=0;
-        if(accountType.equals("Savings")){
-            for(int i = 0;i<savingsAccounts.size();i++){
-                if(savingsAccounts.get(i).getPersonId().equals(personId))
-                    flag=i;
-            }
-        }
-        else if(accountType.equals("Current")){
-            for(int i = 0;i<currentAccounts.size();i++){
-                if(currentAccounts.get(i).getPersonId().equals(personId))
-                    flag=i;
-            }
+        for(int i = 0;i<customers.size();i++){
+            if(customers.get(i).getPersonId().equals(personId))
+                flag=i;
         }
         return flag;
     }
@@ -256,6 +274,7 @@ public class ExecutionerClass {
         if(accountType.equals("Savings")){
             for (int i = 0; i < savingsAccounts.size(); i++) {
                 if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    addTransactions("cash",accountNumber,amount);
                     float temp = savingsAccounts.get(i).getAccountBalance();
                     temp = temp-amount;
                     savingsAccounts.get(i).setAccountBalance(temp);
@@ -266,6 +285,7 @@ public class ExecutionerClass {
         else if(accountType.equals("Current")){
             for (int i = 0; i < currentAccounts.size(); i++) {
                 if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    addTransactions("cash",accountNumber,amount);
                     float temp = currentAccounts.get(i).getAccountBalance();
                     temp = temp-amount;
                     currentAccounts.get(i).setAccountBalance(temp);
@@ -280,6 +300,7 @@ public class ExecutionerClass {
         if(accountType.equals("Savings")){
             for (int i = 0; i < savingsAccounts.size(); i++) {
                 if (savingsAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    addTransactions(accountNumber,"cash",amount);
                     float temp = savingsAccounts.get(i).getAccountBalance();
                     temp = temp+amount;
                     savingsAccounts.get(i).setAccountBalance(temp);
@@ -290,6 +311,7 @@ public class ExecutionerClass {
         else if(accountType.equals("Current")){
             for (int i = 0; i < currentAccounts.size(); i++) {
                 if (currentAccounts.get(i).getAccountNumber().equals(accountNumber)) {
+                    addTransactions(accountNumber,"cash",amount);
                     float temp = currentAccounts.get(i).getAccountBalance();
                     temp = temp+amount;
                     currentAccounts.get(i).setAccountBalance(temp);
@@ -381,7 +403,12 @@ public class ExecutionerClass {
             System.out.println("Username : "+employees.get(flag).getUsername());
             System.out.println("Bank Branch : "+employees.get(flag).getBankBranch());
         }
+    }
 
-
+    private void addTransactions(String beneficiaryAccount,String payerAccount,float amount){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        transaction= new Transactions(beneficiaryAccount,payerAccount,amount,date);
+        transactions.add(transaction);
     }
 }
