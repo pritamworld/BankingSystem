@@ -115,6 +115,7 @@ public class ExecutionerClass {
                     executionerClass.displayTransactions(accountNumber);System.out.println("Do you want to exit(1/0)? : ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
+                    break;
                 case 9 :
                     System.out.println("Enter Beneficiary Account Number");
                     String beneficiaryAccountNumber = scanner.nextLine();
@@ -124,6 +125,7 @@ public class ExecutionerClass {
                     float amount = scanner.nextFloat();
                     scanner.nextLine();;;;;
                     executionerClass.transferAmount(beneficiaryAccountNumber,payerAccountNumber,amount);
+                    break;
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
