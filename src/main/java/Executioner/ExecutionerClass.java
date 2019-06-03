@@ -20,14 +20,19 @@ import java.time.LocalDate;
 public class ExecutionerClass   {
 
     private ArrayList<Customer> customers = new ArrayList<>();
-    Iterator<Customer>itr = customers .iterator();
+    Iterator<Customer>itrc = customers .iterator();
 
 
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
+    Iterator<BankAccount>itrb=bankAccounts.iterator();
     private ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
+    Iterator<CurrentAccount>itrca=currentAccounts.iterator();
     private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
+    Iterator<SavingsAccount>itrsa=savingsAccounts.iterator();
     private ArrayList<Transactions> transactions = new ArrayList<>();
+    Iterator<Transactions>itrt=transactions.iterator();
     private ArrayList<Employee> employees = new ArrayList<>();
+    Iterator<Employee>itre=employees.iterator();
     private CurrentAccount currentAccount = new CurrentAccount();
     private SavingsAccount savingsAccount = new SavingsAccount();
     Transactions transaction = new Transactions();
@@ -176,7 +181,9 @@ public class ExecutionerClass   {
         System.out.println("Enter Address : ");
         address = scanner.nextLine();
         System.out.println("Enter Date of birth : ");
+        System.out.println("yyyy/mm/dd");
         birthDate = scanner.nextLine();
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         Date d = sdf.parse(birthDate);
         try {
@@ -185,12 +192,13 @@ public class ExecutionerClass   {
         Calendar c = Calendar.getInstance();
         c.setTime(d);
         int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH) + 1;
+        int month = c.get(Calendar.MONTH);
         int date = c.get(Calendar.DATE);
         LocalDate l1 = LocalDate.of(year, month, date);
         LocalDate now1 = LocalDate.now();
         Period diff1 = Period.between(l1, now1);
-        if (diff1.getYears()<18){
+        int l=diff1.getYears();
+        if (l<18){
             throw new AgeException("age is below 18 years");
         }
 
@@ -214,9 +222,9 @@ public class ExecutionerClass   {
         emailId = scanner.nextLine();
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
-        try{while(itr.hasNext()){
+        try{while(itrc.hasNext()){
             Customer a;
-              a = itr.next();
+              a = itrc.next();
 
             if(photoAddressId.equalsIgnoreCase(a.getPhotoAddressProofId())){
                 throw new PhotoidException("photo id already exists");
