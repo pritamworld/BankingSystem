@@ -185,9 +185,10 @@ public class ExecutionerClass   {
         System.out.println("yyyy/mm/dd");
         birthDate = scanner.nextLine();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        Date d = sdf.parse(birthDate);
+
         try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date d = sdf.parse(birthDate);
 
 
         Calendar c = Calendar.getInstance();
@@ -201,12 +202,14 @@ public class ExecutionerClass   {
         int l=diff1.getYears();
         if (l<18){
             throw new AgeException("age is below 18 years");
+
         }
 
 
         }
         catch (Exception e){
             System.out.println(e.getMessage());
+            createBankAccount();
         }
 
         System.out.println("Enter Contact Number : ");
@@ -217,7 +220,8 @@ public class ExecutionerClass   {
             }
 
         }catch(Exception e){
-            System.out.println(e.getMessage());
+
+            createBankAccount();
         }
         System.out.println("Enter E-mail ID : ");
         emailId = scanner.nextLine();
@@ -230,7 +234,7 @@ public class ExecutionerClass   {
                 throw new EmailException("invalid email");
             }
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            createBankAccount();;
         }
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
@@ -246,7 +250,7 @@ public class ExecutionerClass   {
 
         }
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            createBankAccount();
         }
         customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
         customers.add(customer);
