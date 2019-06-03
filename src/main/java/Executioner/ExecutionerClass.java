@@ -122,7 +122,15 @@ public class ExecutionerClass {
 
     }
     private void displayTransactions(String accountNumber){
+        for(int i = 0;i<transactions.size();i++){
+            if(transactions.get(i).getBeneficiaryAccountNumber().equals(accountNumber)){
+                System.out.println("Credited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
+            }
+            if(transactions.get(i).getPayerAccountNumber().equals(accountNumber)){
+                System.out.println("Debited "+transactions.get(i).getAmount()+ " on " + transactions.get(i).getDate());
+            }
 
+        }
     }
     private void onCreate(){
         customer = new Customer("1", "Abhishek", "Brampton", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
