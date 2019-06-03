@@ -447,6 +447,14 @@ public class ExecutionerClass   {
         String birthDate = scanner.nextLine();
         System.out.println("Enter Contact Number : ");
         String contactNunmber = scanner.nextLine();
+        try{
+            if(contactNunmber.length()!=10) {
+                throw new InvalidPhoneException("phone number should be a ten digit number");
+            }
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Enter E-mail ID : ");
         String email = scanner.nextLine();
         System.out.println("Enter Designation");
