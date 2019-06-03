@@ -1,4 +1,4 @@
-package Executioner;
+package com.exception;
 
 public class EmailException extends Exception {
     public EmailException() {

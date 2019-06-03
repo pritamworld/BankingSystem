@@ -3,13 +3,13 @@ import bank.CurrentAccount;
 import bank.SavingsAccount;
 import bank.Transactions;
 import com.exception.AgeException;
+import com.exception.EmailException;
 import com.exception.InvalidPhoneException;
 import com.exception.PhotoidException;
 import person.Customer;
 import bank.BankAccount;
 import person.Employee;
 
-import javax.xml.crypto.dsig.TransformService;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -201,11 +201,10 @@ public class ExecutionerClass   {
         if (l<18){
             throw new AgeException("age is below 18 years");
         }
-
-
         }
         catch (Exception e){
             System.out.println(e.getMessage());
+
         }
 
         System.out.println("Enter Contact Number : ");
