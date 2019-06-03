@@ -237,13 +237,13 @@ public class ExecutionerClass {
     private int getCustomerIndex(String personId,String accountType){
         int flag=0;
         if(accountType.equals("Savings")){
-            for(int i = 0;i<savingsAccounts.size();i--){
+            for(int i = 0;i<savingsAccounts.size();i++){
                 if(savingsAccounts.get(i).getPersonId().equals(personId))
                     flag=i;
             }
         }
         else if(accountType.equals("Current")){
-            for(int i = 0;i<currentAccounts.size();i--){
+            for(int i = 0;i<currentAccounts.size();i++){
                 if(currentAccounts.get(i).getPersonId().equals(personId))
                     flag=i;
             }
