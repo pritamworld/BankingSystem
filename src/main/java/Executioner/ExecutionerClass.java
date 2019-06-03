@@ -45,7 +45,7 @@ public class ExecutionerClass {
             System.out.println("5. Delete Bank Account");
             System.out.println("6. Add Employee");
             System.out.println("7. View Employee Details");
-            System.out.println("7. Transactions");
+            System.out.println("8. Transactions");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -111,7 +111,9 @@ public class ExecutionerClass {
                 case 8 :
                     System.out.println("Enter Account Number : ");
                     accountNumber = scanner.nextLine();
-                    executionerClass.displayTransactions(accountNumber);
+                    executionerClass.displayTransactions(accountNumber);System.out.println("Do you want to exit(1/0)? : ");
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
@@ -142,6 +144,10 @@ public class ExecutionerClass {
         //-----------------------------------
         Employee employee = new Employee("4","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
         employees.add(employee);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
     }
 
     private void createBankAccount() {
