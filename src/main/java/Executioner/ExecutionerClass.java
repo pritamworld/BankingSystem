@@ -458,6 +458,7 @@ public class ExecutionerClass   {
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
+            addEmployees();
         }
         System.out.println("Enter Person Name : ");
         String personName = scanner.nextLine();
@@ -488,6 +489,7 @@ public class ExecutionerClass   {
             }
         }catch(Exception e){
             System.out.println(e.getMessage());
+            addEmployees();
         }
         System.out.println("Enter Designation");
         String designation = scanner.nextLine();
