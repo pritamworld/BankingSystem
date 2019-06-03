@@ -2,9 +2,6 @@ package Executioner;
 import bank.CurrentAccount;
 import bank.SavingsAccount;
 import bank.Transactions;
-import com.exception.AgeException;
-import com.exception.InvalidPhoneException;
-import com.exception.PhotoidException;
 import person.Customer;
 import bank.BankAccount;
 import person.Employee;
@@ -252,69 +249,14 @@ public class ExecutionerClass   {
         System.out.println("Enter Date of birth : ");
         System.out.println("yyyy/mm/dd");
         birthDate = scanner.nextLine();
-
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         Date d = sdf.parse(birthDate);
-        try {
-
-
-        Calendar c = Calendar.getInstance();
-        c.setTime(d);
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int date = c.get(Calendar.DATE);
-        LocalDate l1 = LocalDate.of(year, month, date);
-        LocalDate now1 = LocalDate.now();
-        Period diff1 = Period.between(l1, now1);
-        int l=diff1.getYears();
-        if (l<18){
-            throw new AgeException("age is below 18 years");
-        }
-
-
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
-        try{
-            if(contactNumber.length()!=10) {
-                throw new InvalidPhoneException("phone number should be a ten digit number");
-            }
-
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
         System.out.println("Enter E-mail ID : ");
         emailId = scanner.nextLine();
-        try{
-            int count=0;
-            if(emailId.indexOf('@')>=1){
-                count++;
-            }
-            if(count==0){
-                throw new EmailException("invalid email");
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
-        try{while(itrc.hasNext()){
-            Customer a;
-              a = itrc.next();
-
-            if(photoAddressId.equalsIgnoreCase(a.getPhotoAddressProofId())){
-                throw new PhotoidException("photo id already exists");
-            }
-
-
-        }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
         customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
         customers.add(customer);
         System.out.println("1. Savings Account");
@@ -516,14 +458,6 @@ public class ExecutionerClass   {
         String birthDate = scanner.nextLine();
         System.out.println("Enter Contact Number : ");
         String contactNunmber = scanner.nextLine();
-        try{
-            if(contactNunmber.length()!=10) {
-                throw new InvalidPhoneException("phone number should be a ten digit number");
-            }
-
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
         System.out.println("Enter E-mail ID : ");
         String email = scanner.nextLine();
         System.out.println("Enter Designation");
