@@ -193,7 +193,6 @@ public class ExecutionerClass   {
         savingsAccounts.add(savingsAccount);
         savingsAccount = new SavingsAccount ("987467593829","Savings","North York", 11500.080f,"9",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("98745","Savings","North York", 1300.00f,"2",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccount = new SavingsAccount ("098576364983","Savings","North York", 82300.20f,"10",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
         savingsAccount = new SavingsAccount ("156556723045","Savings","North York", 1500.04f,"11",5000.00f,0.00f,5.50f,1.00f,100.00f);
@@ -209,11 +208,73 @@ public class ExecutionerClass   {
 
 
         //------------------------------------
-
-        customer = new Customer("3", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+        customer = new Customer("16", "kiran_johnson", "Brampton", "03/08/1995", "+14372391989", "abhishek1234@gmail.com", "15/1995/2018");
         customers.add(customer);
-        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"3",5000.0f,0.00f,5.50f,0.0f,100.00f);
+        customer = new Customer("17", "alwin_james", "Markham Road", "05/08/1995", "+146783919123", "ashishpradeeshl@gmail.com", "16/1996/2019");
+        customers.add(customer);
+        customer = new Customer("18", "john_paul", "8 sheppard east Road", "10/07/1998", "+143723912346", "joyalmnnns@gmail.com", "14/1994/2018");
+        customers.add(customer);
+        customer = new Customer("19", "basil_thomas", "10 sheppard Road", "05/09/1999", "+14372391459", "basil123@gmail.com", "1/1997/2018");
+        customers.add(customer);
+        customer = new Customer("20", "jain_bastin", "costa rica drive", "03/12/1990", "+14372757879", "johnbastim@gmail.com", "2/1998/2018");
+        customers.add(customer);
+        customer = new Customer("21", "dell_smith", "elsemere Road", "25/11/19985", "+143723424349", "willsmithjohnl@gmail.com", "17/1999/2018");
+        customers.add(customer);
+        customer = new Customer("22", "jay_smith", "densgrove Road", "26/12/1989", "+143723424349", "jackthjohnl@gmail.com", "17/1999/2018");
+        customers.add(customer);
+        customer = new Customer("23", "leo_louie", "steelees Road", "25/4/1991", "+1437234445349", "leolouie@gmail.com", "18/1999/2018");
+        customers.add(customer);
+        customer = new Customer("24", "amir_khan", "Brampton", "03/8/1992", "+14372391989", "sarath1234@gmail.com", "15/1995/2018");
+        customers.add(customer);
+        customer = new Customer("25", "tika_masy", "Markham Road", "26/05/1995", "+146783919123", "nikamaray@gmail.com", "16/1996/2019");
+        customers.add(customer);
+        customer = new Customer("26", "sueo_nika", "68 sheppard north Road", "10/07/1998", "+143723912346", "sueonika215@gmail.com", "6/1998/2018");
+        customers.add(customer);
+        customer = new Customer("27", "jackie_chan", "15 sheppard Road", "05/09/1999", "+143222391459", "jackiechan@gmail.com", "10/1997/2018");
+        customers.add(customer);
+        customer = new Customer("28", "rocky_jhonson", "new valley Road", "03/12/1990", "+1892757859", "rock@gmail.com", "24/1998/2017");
+        customers.add(customer);
+        customer = new Customer("29", "louis_mark", "delawana drive", "25/01/1995", "+12323424385", "louismark@gmail.com", "7/1995/2016");
+        customers.add(customer);
+        customer = new Customer("30", "namy_paul", "steelees Road", "25/09/1995", "+165734445349", "namypaul@gmail.com", "12/1989/2018");
+        customers.add(customer);
+
+
+        currentAccount = new CurrentAccount("1234578901", "Current", "North York", 1500.00f,"16",3000.0f,0.00f,0.02f,0.0f,20.00f);
         currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("6726780903", "Current", "North York", 1500.00f,"17",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("6726793033", "Current", "North York", 1500.00f,"18",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("1726780903", "Current", "North York", 1500.00f,"19",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("2726780903", "Current", "North York", 1500.00f,"20",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("3767809033", "Current", "North York", 1500.00f,"21",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("3726580233", "Current", "North York", 1500.00f,"22",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("7267809033", "Current", "North York", 1500.00f,"23",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("6367809033", "Current", "North York", 1500.00f,"24",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("5267829033", "Current", "North York", 1500.00f,"25",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("2426780033", "Current", "North York", 1500.00f,"26",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("4267809033", "Current", "North York", 1500.00f,"27",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("6737809033", "Current", "North York", 1500.00f,"28",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("2467809033", "Current", "North York", 1500.00f,"29",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+        currentAccount = new CurrentAccount("6267809033", "Current", "North York", 1500.00f,"30",3000.0f,0.00f,0.02f,0.0f,20.00f);
+        currentAccounts.add(currentAccount);
+
+
+
+
+
 
         //-----------------------------------
          Employee employee = new Employee("4","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
