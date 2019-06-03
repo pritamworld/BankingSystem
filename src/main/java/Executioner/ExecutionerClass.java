@@ -3,6 +3,7 @@ import bank.CurrentAccount;
 import bank.SavingsAccount;
 import bank.Transactions;
 import com.exception.AgeException;
+import com.exception.EmployeeIdException;
 import com.exception.InvalidPhoneException;
 import com.exception.PhotoidException;
 import person.Customer;
@@ -233,7 +234,8 @@ public class ExecutionerClass   {
         }
         System.out.println("Enter ID Number : ");
         photoAddressId = scanner.nextLine();
-        try{while(itrc.hasNext()){
+        try{
+            while(itrc.hasNext()){
             Customer a;
               a = itrc.next();
 
@@ -439,12 +441,27 @@ public class ExecutionerClass   {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Person ID : ");
         String personId = scanner.nextLine();
+        try{
+            while(itre.hasNext()){
+                Employee a;
+                a = itre.next();
+
+                if(personId.equalsIgnoreCase(a.getPersonId())){
+                    throw new EmployeeIdException("employee id already exists");
+                }
+
+
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Enter Person Name : ");
         String personName = scanner.nextLine();
         System.out.println("Enter Address");
         String address = scanner.nextLine();
         System.out.println("Enter Date of birth : ");
         String birthDate = scanner.nextLine();
+
         System.out.println("Enter Contact Number : ");
         String contactNunmber = scanner.nextLine();
         try{
@@ -457,6 +474,17 @@ public class ExecutionerClass   {
         }
         System.out.println("Enter E-mail ID : ");
         String email = scanner.nextLine();
+        try{
+            int count=0;
+            if(email.indexOf('@')>=1){
+                count++;
+            }
+            if(count==0){
+                throw new EmailException("invalid email");
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Enter Designation");
         String designation = scanner.nextLine();
         System.out.println("Enter Salary : ");
