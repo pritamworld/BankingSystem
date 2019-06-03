@@ -119,7 +119,7 @@ public class ExecutionerClass {
 
         customer = new Customer("0", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
         customers.add(customer);
-        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"1",5000.0f,0.00f,5.50f,0.0f,100.00f);
+        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"0",5000.0f,0.00f,5.50f,0.0f,100.00f);
         currentAccounts.add(currentAccount);
 
         //-----------------------------------
@@ -200,7 +200,7 @@ public class ExecutionerClass {
                     System.out.println("Account Type : " + savingsAccounts.get(i).getAccountType());
                     System.out.println("Account Main Branch : " + savingsAccounts.get(i).getBankBranch());
                     System.out.println("Account Balance : " + savingsAccounts.get(i).getAccountBalance());
-                    System.out.println("Withdrawl Limit : " + savingsAccounts.get(i).getWithdrawalLimit());
+                    System.out.println("Withdrawal Limit : " + savingsAccounts.get(i).getWithdrawalLimit());
                     System.out.println("Transaction Charges : " + savingsAccounts.get(i).getTransactionCharges());
                     System.out.println("Interest Rate : " + savingsAccounts.get(i).getInterestRate());
                     System.out.println("Insufficient Balance Charges : " + savingsAccounts.get(i).getInsufficientFundCharges());
