@@ -46,6 +46,7 @@ public class ExecutionerClass {
             System.out.println("6. Add Employee");
             System.out.println("7. View Employee Details");
             System.out.println("8. Transactions");
+            System.out.println("9. Transfer");
             Scanner scanner = new Scanner(System.in);
             int id = scanner.nextInt();
             scanner.nextLine();
@@ -114,10 +115,57 @@ public class ExecutionerClass {
                     executionerClass.displayTransactions(accountNumber);System.out.println("Do you want to exit(1/0)? : ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
+                case 9 :
+                    System.out.println("Enter Beneficiary Account Number");
+                    String beneficiaryAccountNumber = scanner.nextLine();
+                    System.out.println("Enter Payer Account Number");
+                    String payerAccountNumber = scanner.nextLine();
+                    System.out.println("Enter Amount");
+                    float amount = scanner.nextFloat();
+                    scanner.nextLine();;;;;
+                    executionerClass.transferAmount(beneficiaryAccountNumber,payerAccountNumber,amount);
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
         } while (choice == 0);
+
+
+    }
+    private void transferAmount(String beneficiaryAccountNumber,String payerAccountNumber,float amount){
+        //get account type
+        int balanceAvailable=0;
+        int foundBeneficiary=0;
+        int foundPayer=0;
+        //check balance
+        //transfer
+        String accountType = getAccountType(payerAccountNumber);
+        if(accountType.equals("Savings")){
+            for(int i = 0;i<savingsAccounts.size();i++){
+                if(savingsAccounts.get(i).getAccountNumber().equals(payerAccountNumber)){
+                    foundPayer=1;
+                    if(savingsAccounts.get(i).getAccountBalance()>=amount){
+                        balanceAvailable=1;
+                        float balance = savingsAccounts.get(i).getAccountBalance();
+                        balance = balance - amount;
+                        savingsAccounts.get(i).setAccountBalance(balance);
+                    }
+                }
+            }
+        }
+        else if(accountType.equals("Current")){
+            for(int i = 0;i<currentAccounts.size();i++){
+                if(currentAccounts.get(i).getAccountNumber().equals(payerAccountNumber)){
+                    foundBeneficiary=1;
+                    if(currentAccounts.get(i).getAccountBalance()>=amount){
+                        balanceAvailable=1;
+                        float balance = savingsAccounts.get(i).getAccountBalance();
+                        balance = balance - amount;
+                        savingsAccounts.get(i).setAccountBalance(balance);
+                    }
+                }
+            }
+        }
+        String beneficiaryAccountType = getAccountType(beneficiaryAccountNumber);
 
 
     }
