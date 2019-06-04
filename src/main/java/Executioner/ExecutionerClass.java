@@ -247,9 +247,19 @@ public class ExecutionerClass   {
         }
         return personId;
     }
-    private String validateDate(String date){
-
-        return "";
+    private int validateDate(String birthDate){
+        int flag = 1;
+        DateFormat format = new SimpleDateFormat("yyyy/mm/dd");
+        format.setLenient(false);
+        try {
+            format.parse(birthDate);
+        } catch (ParseException e) {
+            System.out.println("Date " + birthDate + " is not valid according to " +
+                    ((SimpleDateFormat) format).toPattern() + " pattern.");
+            System.out.println("Please Try Again.");
+            flag = 0;
+        }
+        return flag;
     }
     private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
@@ -261,9 +271,14 @@ public class ExecutionerClass   {
         name = scanner.nextLine();
         System.out.println("Enter Address : ");
         address = scanner.nextLine();
-        System.out.println("Enter Date of birth (YYYY/MM/DD): ");
-        birthDate = scanner.nextLine();
-        birthDate = validateDate(birthDate);
+        int flag =0;
+        do {
+            System.out.println("Enter Date of birth (YYYY/MM/DD): ");
+            birthDate = scanner.nextLine();
+            flag = validateDate(birthDate);
+        }while (flag==0);
+
+
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
         System.out.println("Enter E-mail ID : ");
