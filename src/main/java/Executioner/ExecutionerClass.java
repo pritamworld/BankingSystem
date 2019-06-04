@@ -642,13 +642,13 @@ public class ExecutionerClass   {
         banks.add(bank);
 
 
-        addTransactions("12345","67267809033",2000);
-        addTransactions("67267809033","12345",2000);
-        addTransactions("CASH","67267809033",2000);
-        addTransactions("67267809033","CASH",2000);
-        addTransactions("12345","67267809033",2000);
-        addTransactions("67267809033","12345",2000);
-        addTransactions("CASH","67267809033",2000);
-        addTransactions("67267809033","CASH",2000);
+        addTransactions("987467589329","67267809033",22000);
+        addTransactions("098576364783","987467589329",4000);
+        addTransactions("CASH","098576364783",6200);
+        addTransactions("098576364783","CASH",9200);
+        addTransactions("987467589329","CASH",1000);
+        addTransactions("CASH","987467589329",5000);
+        addTransactions("CASH","098576364783",6000);
+        addTransactions("098576364783","CASH",2000);
     }
 }
