@@ -270,15 +270,46 @@ public class ExecutionerClass   {
         bank = new Bank("North York","84 John Tabor Lane",1);
         banks.add(bank);
 
-
-
-
-
+        addTransactions("987467589329","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
         addTransactions("12345","67267809033",2000);
         addTransactions("67267809033","12345",2000);
         addTransactions("CASH","67267809033",2000);
         addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
+
+
+
     }
+
+
+
+
     private String validatePersonId(String personId){
         for(int i =0;i<customers.size();i++){
             if(customers.get(i).getPersonId().equals(personId)){
