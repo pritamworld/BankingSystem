@@ -1,9 +1,6 @@
 package Executioner;
-import bank.CurrentAccount;
-import bank.SavingsAccount;
-import bank.Transactions;
+import bank.*;
 import person.Customer;
-import bank.BankAccount;
 import person.Employee;
 
 import javax.xml.crypto.dsig.TransformService;
@@ -18,21 +15,15 @@ import java.util.regex.Pattern;
 public class ExecutionerClass   {
 
     private ArrayList<Customer> customers = new ArrayList<>();
-    Iterator<Customer>itrc = customers .iterator();
-
-
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
-    Iterator<BankAccount>itrb=bankAccounts.iterator();
     private ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
-    Iterator<CurrentAccount>itrca=currentAccounts.iterator();
     private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
-    Iterator<SavingsAccount>itrsa=savingsAccounts.iterator();
     private ArrayList<Transactions> transactions = new ArrayList<>();
-    Iterator<Transactions>itrt=transactions.iterator();
     private ArrayList<Employee> employees = new ArrayList<>();
-    Iterator<Employee>itre=employees.iterator();
     private CurrentAccount currentAccount = new CurrentAccount();
     private SavingsAccount savingsAccount = new SavingsAccount();
+    private Bank bank = new Bank();
+    private ArrayList<Bank> banks = new ArrayList<>();
     Transactions transaction = new Transactions();
 
     private Customer customer;
@@ -210,22 +201,12 @@ public class ExecutionerClass   {
         savingsAccounts.add(savingsAccount);
 
 
-        //------------------------------------
-
-        customer = new Customer("3", "Richu Jain", "84 John Tabor", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
-        customers.add(customer);
-        currentAccount = new CurrentAccount("67267809033", "Current", "North York", 1500.00f,"3",5000.0f,0.00f,5.50f,0.0f,100.00f);
-        currentAccounts.add(currentAccount);
-
-        //-----------------------------------
-         Employee employee = new Employee("4","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
-        employees.add(employee);
-        employee = new Employee("4","Richu Jain","Morning side","03/08/1995","4372391989","richujain1995@gmail.com","Manager",5000.00f,"admin","admin","North York");
-        employees.add(employee);
 
 
 
-
+        //Creation of bank and linking employees
+        bank = new Bank("North York","84 John Tabor Lane",1);
+        banks.add(bank);
 
 
 
