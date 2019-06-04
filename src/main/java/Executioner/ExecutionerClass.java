@@ -261,6 +261,17 @@ public class ExecutionerClass   {
         }
         return flag;
     }
+    private String validateContact(String contactNumber){
+        if(contactNumber.length() != 10){
+            System.out.println("Contact Number is incorrect. ");
+            System.out.println("Please try again. ");
+            System.out.println("Enter Contact Number : ");
+            Scanner scanner = new Scanner(System.in);
+            contactNumber = scanner.nextLine();
+            validateContact(contactNumber);
+        }
+        return  contactNumber;
+    }
     private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         String personId,name,address,birthDate,contactNumber,emailId,photoAddressId;
@@ -281,6 +292,8 @@ public class ExecutionerClass   {
 
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
+        contactNumber = validateContact(contactNumber);
+
         System.out.println("Enter E-mail ID : ");
         emailId = scanner.nextLine();
         System.out.println("Enter ID Number : ");
