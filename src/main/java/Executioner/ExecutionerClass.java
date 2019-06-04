@@ -120,15 +120,14 @@ public class ExecutionerClass   {
                 case 8 :
                     System.out.println("Enter Account Number : ");
                     accountNumber = scanner.nextLine();
-                    executionerClass.displayTransactions(accountNumber);System.out.println("Do you want to exit(1/0)? : ");
+                    executionerClass.displayTransactions(accountNumber);
+                    System.out.println("Do you want to exit(1/0)? : ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
                     default:
                     System.out.println("You have entered an Invalid option. Please try again.");
             }
         } while (choice == 0);
-
-
     }
     private void displayTransactions(String accountNumber){
         for(int i = 0;i<transactions.size();i++){
@@ -295,12 +294,21 @@ public class ExecutionerClass   {
         addTransactions("CASH","67267809033",2000);
         addTransactions("67267809033","CASH",2000);
     }
-
+    private String validatePersonId(String personId){
+        for(int i =0;i<customers.size();i++){
+            if(customers.get(i).getPersonId().equals(personId)){
+                System.out.println("PersonId exists. Try Again. ");
+                validatePersonId(personId);
+            }
+        }
+        return personId;
+    }
     private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         String personId,name,address,birthDate,contactNumber,emailId,photoAddressId;
         System.out.println("Enter Person ID : ");
         personId = scanner.nextLine();
+        personId=validatePersonId(personId);
         System.out.println("Enter Name : ");
         name = scanner.nextLine();
         System.out.println("Enter Address : ");
