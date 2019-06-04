@@ -646,5 +646,9 @@ public class ExecutionerClass   {
         addTransactions("67267809033","12345",2000);
         addTransactions("CASH","67267809033",2000);
         addTransactions("67267809033","CASH",2000);
+        addTransactions("12345","67267809033",2000);
+        addTransactions("67267809033","12345",2000);
+        addTransactions("CASH","67267809033",2000);
+        addTransactions("67267809033","CASH",2000);
     }
 }
