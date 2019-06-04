@@ -1,9 +1,8 @@
 package person;
-import bank.BankAccount;
 
 import java.util.ArrayList;
 
-public class Customer extends Person implements IDIsplay{
+public class Customer extends Person implements IDisplay {
 
     private String photoAddressProofId;
     public Customer() {

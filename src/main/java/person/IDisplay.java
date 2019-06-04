@@ -2,6 +2,6 @@ package person;
 
 import java.util.ArrayList;
 
-interface IDIsplay {
+interface IDisplay {
     void displayCustomerData(ArrayList<Customer> customers);
 }

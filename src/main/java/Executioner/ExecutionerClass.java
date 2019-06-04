@@ -239,6 +239,7 @@ public class ExecutionerClass   {
                 String bankBranch = scanner.nextLine();
                 System.out.println("Enter Account Balance : ");
                 float accountBalance = scanner.nextFloat();
+
                 scanner.nextLine();
                 savingsAccount = new SavingsAccount(accountNumber, "Savings", bankBranch, accountBalance,personId,5000.00f,0.00f,5.50f,1.00f,100.00f);
                 savingsAccounts.add(savingsAccount);
@@ -470,7 +471,7 @@ public class ExecutionerClass   {
     }
     private void onCreate(){
 
-        customer = new Customer("1", "Abhishek_madgeporu", "Brampton", "03/08/1995", "+1", "abhishek1234@gmail.com", "15/1995/2018");
+        customer = new Customer("1", "Abhishek_madgeporu", "Brampton", "03/08/1995", "4372391989", "abhishek1234@gmail.com", "15/1995/2018");
         customers.add(customer);
         customer = new Customer("2", "Ashish_pradeesh", "Markham Road", "05/08/1995", "6783919123", "ashishpradeeshl@gmail.com", "16/1996/2019");
         customers.add(customer);
@@ -486,7 +487,7 @@ public class ExecutionerClass   {
         customers.add(customer);
         customer = new Customer("8", "leo_louie", "steelees Road", "25/4/1991", "37234445349", "leolouie@gmail.com", "18/1999/2018");
         customers.add(customer);
-        customer = new Customer("9", "sarat_khan", "Brampton", "03/8/1992", "+1", "sarath1234@gmail.com", "15/1995/2018");
+        customer = new Customer("9", "sarat_khan", "Brampton", "03/8/1992", "+4372391989", "sarath1234@gmail.com", "15/1995/2018");
         customers.add(customer);
         customer = new Customer("10", "nika_masy", "Markham Road", "26/05/1995", "6783919123", "nikamaray@gmail.com", "16/1996/2019");
         customers.add(customer);
