@@ -23,10 +23,6 @@ public class Customer extends Person implements IDIsplay{
         this.photoAddressProofId = photoAddressProofId;
     }
 
-    public float getAccountBalance(){
-        BankAccount bankAccount = new BankAccount();
-        return 0.0f;
-    }
     @Override
     public void displayCustomerData(ArrayList<Customer> customers) {
         for (int i = 0; i < customers.size(); i++) {
