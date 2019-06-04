@@ -634,8 +634,13 @@ public class ExecutionerClass   {
 
 
         //Creation of bank and linking employees
-        bank = new Bank("North York","84 John Tabor Lane",1);
+        bank = new Bank("North York","84 John Tabor Lane",31);
         banks.add(bank);
+        bank = new Bank("Downtown","dundas street",36);
+        banks.add(bank);
+        bank = new Bank("Markham","sheppard 7 Tabor Lane",41);
+        banks.add(bank);
+
 
         addTransactions("12345","67267809033",2000);
         addTransactions("67267809033","12345",2000);
