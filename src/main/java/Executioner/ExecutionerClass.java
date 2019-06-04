@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.time.Period;
 import java.util.*;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 public class ExecutionerClass   {
 
@@ -272,6 +273,19 @@ public class ExecutionerClass   {
         }
         return  contactNumber;
     }
+
+    public static boolean validateEmail(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
     private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         String personId,name,address,birthDate,contactNumber,emailId,photoAddressId;
@@ -288,15 +302,24 @@ public class ExecutionerClass   {
             birthDate = scanner.nextLine();
             flag = validateDate(birthDate);
         }while (flag==0);
-
-
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
         contactNumber = validateContact(contactNumber);
+        flag=0;
+        do{
+            System.out.println("Enter E-mail ID : ");
+            emailId = scanner.nextLine();
+            boolean isEmailValid = validateEmail(emailId);
+            if(isEmailValid)
+                flag=1;
+            else{
+                System.out.println("Emaiil ID is invalid");
+                System.out.println("Please try again.");
+                flag=0;
+            }
+        }while (flag==0);
 
-        System.out.println("Enter E-mail ID : ");
-        emailId = scanner.nextLine();
-        System.out.println("Enter ID Number : ");
+        System.out.println("Enter Photo and Address ID Number : ");
         photoAddressId = scanner.nextLine();
         customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
         customers.add(customer);
