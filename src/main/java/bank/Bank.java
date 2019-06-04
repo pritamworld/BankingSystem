@@ -8,6 +8,7 @@ public class Bank {
    String bankBranch;
    String Address;
    String Manager;
-   
+
+
 
 }
