@@ -239,10 +239,17 @@ public class ExecutionerClass   {
         for(int i =0;i<customers.size();i++){
             if(customers.get(i).getPersonId().equals(personId)){
                 System.out.println("PersonId exists. Try Again. ");
+                System.out.println("Enter Person ID : ");
+                Scanner scanner = new Scanner(System.in);
+                personId = scanner.nextLine();
                 validatePersonId(personId);
             }
         }
         return personId;
+    }
+    private String validateDate(String date){
+
+        return "";
     }
     private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
@@ -254,11 +261,9 @@ public class ExecutionerClass   {
         name = scanner.nextLine();
         System.out.println("Enter Address : ");
         address = scanner.nextLine();
-        System.out.println("Enter Date of birth : ");
-        System.out.println("yyyy/mm/dd");
+        System.out.println("Enter Date of birth (YYYY/MM/DD): ");
         birthDate = scanner.nextLine();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        Date d = sdf.parse(birthDate);
+        birthDate = validateDate(birthDate);
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
         System.out.println("Enter E-mail ID : ");
