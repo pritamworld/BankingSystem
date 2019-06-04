@@ -1,9 +1,6 @@
 package Executioner;
-import bank.CurrentAccount;
-import bank.SavingsAccount;
-import bank.Transactions;
+import bank.*;
 import person.Customer;
-import bank.BankAccount;
 import person.Employee;
 
 import javax.xml.crypto.dsig.TransformService;
@@ -13,25 +10,20 @@ import java.text.SimpleDateFormat;
 import java.time.Period;
 import java.util.*;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 public class ExecutionerClass   {
 
     private ArrayList<Customer> customers = new ArrayList<>();
-    Iterator<Customer>itrc = customers .iterator();
-
-
     private ArrayList<BankAccount> bankAccounts = new ArrayList<>();
-    Iterator<BankAccount>itrb=bankAccounts.iterator();
     private ArrayList<CurrentAccount> currentAccounts = new ArrayList<>();
-    Iterator<CurrentAccount>itrca=currentAccounts.iterator();
     private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<>();
-    Iterator<SavingsAccount>itrsa=savingsAccounts.iterator();
     private ArrayList<Transactions> transactions = new ArrayList<>();
-    Iterator<Transactions>itrt=transactions.iterator();
     private ArrayList<Employee> employees = new ArrayList<>();
-    Iterator<Employee>itre=employees.iterator();
     private CurrentAccount currentAccount = new CurrentAccount();
     private SavingsAccount savingsAccount = new SavingsAccount();
+    private Bank bank = new Bank();
+    private ArrayList<Bank> banks = new ArrayList<>();
     Transactions transaction = new Transactions();
 
     private Customer customer;
@@ -142,30 +134,32 @@ public class ExecutionerClass   {
 
     }
     private void onCreate(){
-
-        customer = new Customer("1", "Abhishek_madgeporu", "Brampton", "03/08/1995", "+1", "abhishek1234@gmail.com", "15/1995/2018");
+        customer = new Customer("1", "Abhishek", "Brampton", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+        customer = new Customer("1", "Abhishek_madgeporu", "Brampton", "03/08/1995", "+14372391989", "abhishek1234@gmail.com", "15/1995/2018");
         customers.add(customer);
-        customer = new Customer("2", "Ashish_pradeesh", "Markham Road", "05/08/1995", "6783919123", "ashishpradeeshl@gmail.com", "16/1996/2019");
+        customer = new Customer("2", "Ashish", "Markham Road", "03/08/1995", "+14372391989", "richupulimoottil@gmail.com", "12/1995/2018");
+        customer = new Customer("2", "Ashish_pradeesh", "Markham Road", "05/08/1995", "+146783919123", "ashishpradeeshl@gmail.com", "16/1996/2019");
         customers.add(customer);
-        customer = new Customer("3", "joyal_paul", "8 sheppard east Road", "10/07/1998", "3723912346", "joyalmnnns@gmail.com", "14/1994/2018");
+        savingsAccount = new SavingsAccount ("12345","Savings","North York", 1500.00f,"1",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        customer = new Customer("3", "joyal_paul", "8 sheppard east Road", "10/07/1998", "+143723912346", "joyalmnnns@gmail.com", "14/1994/2018");
         customers.add(customer);
-        customer = new Customer("4", "basil_thomas", "10 sheppard Road", "05/09/1999", "372391459", "basil123@gmail.com", "1/1997/2018");
+        customer = new Customer("4", "basil_thomas", "10 sheppard Road", "05/09/1999", "+14372391459", "basil123@gmail.com", "1/1997/2018");
         customers.add(customer);
-        customer = new Customer("5", "john_bastin", "costa rica drive", "03/12/1990", "372757879", "johnbastim@gmail.com", "2/1998/2018");
+        customer = new Customer("5", "john_bastin", "costa rica drive", "03/12/1990", "+14372757879", "johnbastim@gmail.com", "2/1998/2018");
         customers.add(customer);
-        customer = new Customer("6", "will_smith", "elsemere Road", "25/11/19985", "3723424349", "willsmithjohnl@gmail.com", "17/1999/2018");
+        customer = new Customer("6", "will_smith", "elsemere Road", "25/11/19985", "+143723424349", "willsmithjohnl@gmail.com", "17/1999/2018");
         customers.add(customer);
-        customer = new Customer("7", "jack_smith", "densgrove Road", "26/12/1989", "3723424349", "jackthjohnl@gmail.com", "17/1999/2018");
+        customer = new Customer("7", "jack_smith", "densgrove Road", "26/12/1989", "+143723424349", "jackthjohnl@gmail.com", "17/1999/2018");
         customers.add(customer);
-        customer = new Customer("8", "leo_louie", "steelees Road", "25/4/1991", "37234445349", "leolouie@gmail.com", "18/1999/2018");
+        customer = new Customer("8", "leo_louie", "steelees Road", "25/4/1991", "+1437234445349", "leolouie@gmail.com", "18/1999/2018");
         customers.add(customer);
-        customer = new Customer("9", "sarat_khan", "Brampton", "03/8/1992", "+1", "sarath1234@gmail.com", "15/1995/2018");
+        customer = new Customer("9", "sarat_khan", "Brampton", "03/8/1992", "+14372391989", "sarath1234@gmail.com", "15/1995/2018");
         customers.add(customer);
-        customer = new Customer("10", "nika_masy", "Markham Road", "26/05/1995", "6783919123", "nikamaray@gmail.com", "16/1996/2019");
+        customer = new Customer("10", "nika_masy", "Markham Road", "26/05/1995", "+146783919123", "nikamaray@gmail.com", "16/1996/2019");
         customers.add(customer);
-        customer = new Customer("11", "sueo_nika", "68 sheppard north Road", "10/07/1998", "3723912346", "sueonika215@gmail.com", "6/1998/2018");
+        customer = new Customer("11", "sueo_nika", "68 sheppard north Road", "10/07/1998", "+143723912346", "sueonika215@gmail.com", "6/1998/2018");
         customers.add(customer);
-        customer = new Customer("12", "jackie_chan", "15 sheppard Road", "05/09/1999", "3222391459", "jackiechan@gmail.com", "10/1997/2018");
+        customer = new Customer("12", "jackie_chan", "15 sheppard Road", "05/09/1999", "+143222391459", "jackiechan@gmail.com", "10/1997/2018");
         customers.add(customer);
         customer = new Customer("13", "dwanye_jhonson", "new valley Road", "03/12/1990", "+1892757859", "rock@gmail.com", "24/1998/2017");
         customers.add(customer);
@@ -186,133 +180,33 @@ public class ExecutionerClass   {
         savingsAccounts.add(savingsAccount);
         savingsAccount = new SavingsAccount ("738494057983","Savings","North York", 18300.00f,"6",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("123435903645","Savings","Downtown", 3500.06f,"7",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("123435903645","Savings","North York", 3500.06f,"7",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("987459347589","Savings","Downtown", 19300.09f,"8",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("987459347589","Savings","North York", 19300.09f,"8",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("987467593829","Savings","Downtown", 11500.080f,"9",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("987467593829","Savings","North York", 11500.080f,"9",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("098576364983","Savings","Downtown", 82300.20f,"10",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("98745","Savings","North York", 1300.00f,"2",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("098576364983","Savings","North York", 82300.20f,"10",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("156556723045","Savings","Downtown", 1500.04f,"11",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("156556723045","Savings","North York", 1500.04f,"11",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("183975898948","Savings","Markham", 7020.56f,"12",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("183975898948","Savings","North York", 7020.56f,"12",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("123445545865","Savings","Markham", 15000.10f,"13",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("123445545865","Savings","North York", 15000.10f,"13",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("738494059883","Savings","Markham", 18300.00f,"14",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("738494059883","Savings","North York", 18300.00f,"14",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("123489988985","Savings","Markham", 1500.00f,"15",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("123489988985","Savings","North York", 1500.00f,"15",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
 
 
-        //------------------------------------
-        customer = new Customer("16", "kiran_johnson", "Brampton", "03/08/1995", "1736485768", "abhishek1234@gmail.com", "15/1995/2018");
-        customers.add(customer);
-        customer = new Customer("17", "alwin_james", "Markham Road", "05/08/1995", "6783919123", "ashishpradeeshl@gmail.com", "16/1996/2019");
-        customers.add(customer);
-        customer = new Customer("18", "john_paul", "8 sheppard east Road", "10/07/1998", "3723912346", "joyalmnnns@gmail.com", "14/1994/2018");
-        customers.add(customer);
-        customer = new Customer("19", "basil_thomas", "10 sheppard Road", "05/09/1999", "372391459", "basil123@gmail.com", "1/1997/2018");
-        customers.add(customer);
-        customer = new Customer("20", "jain_bastin", "costa rica drive", "03/12/1990", "372757879", "johnbastim@gmail.com", "2/1998/2018");
-        customers.add(customer);
-        customer = new Customer("21", "dell_smith", "elsemere Road", "25/11/19985", "3723424349", "willsmithjohnl@gmail.com", "17/1999/2018");
-        customers.add(customer);
-        customer = new Customer("22", "jay_smith", "densgrove Road", "26/12/1989", "3723424349", "jackthjohnl@gmail.com", "17/1999/2018");
-        customers.add(customer);
-        customer = new Customer("23", "leo_louie", "steelees Road", "25/4/1991", "37234445349", "leolouie@gmail.com", "18/1999/2018");
-        customers.add(customer);
-        customer = new Customer("24", "amir_khan", "Brampton", "03/8/1992", "7162534678", "sarath1234@gmail.com", "15/1995/2018");
-        customers.add(customer);
-        customer = new Customer("25", "tika_masy", "Markham Road", "26/05/1995", "6783919123", "nikamaray@gmail.com", "16/1996/2019");
-        customers.add(customer);
-        customer = new Customer("26", "sueo_nika", "68 sheppard north Road", "10/07/1998", "3723912346", "sueonika215@gmail.com", "6/1998/2018");
-        customers.add(customer);
-        customer = new Customer("27", "jackie_chan", "15 sheppard Road", "05/09/1999", "3222391459", "jackiechan@gmail.com", "10/1997/2018");
-        customers.add(customer);
-        customer = new Customer("28", "rocky_jhonson", "new valley Road", "03/12/1990", "51892757859", "rock@gmail.com", "24/1998/2017");
-        customers.add(customer);
-        customer = new Customer("29", "louis_mark", "delawana drive", "25/01/1995", "5323424385", "louismark@gmail.com", "7/1995/2016");
-        customers.add(customer);
-        customer = new Customer("30", "namy_paul", "steelees Road", "25/09/1995", "65734445349", "namypaul@gmail.com", "12/1989/2018");
-        customers.add(customer);
-
-
-        currentAccount = new CurrentAccount("1234578901", "Current", "North York", 25500.00f,"16",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6726780903", "Current", "North York", 15500.00f,"17",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6726793033", "Current", "North York", 15080.00f,"18",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("1726780903", "Current", "North York", 17500.00f,"19",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("2726780903", "Current", "North York", 71500.00f,"20",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("3767809033", "Current", "Downtown", 91500.00f,"21",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("3726580233", "Current", "Downtown", 21500.00f,"22",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("7267809033", "Current", "Downtown", 91500.00f,"23",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6367809033", "Current", "Downtown", 61500.00f,"24",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("5267829033", "Current", "Downtown", 90500.00f,"25",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("2426780033", "Current", "Markham", 3500.00f,"26",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("4267809033", "Current", "Markham", 4500.00f,"27",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6737809033", "Current", "Markham", 6500.00f,"28",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("2467809033", "Current", "Markham", 7500.00f,"29",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6267809033", "Current", "North York", 18500.00f,"30",3000.0f,0.00f,0.02f,50.0f,200.00f);
-        currentAccounts.add(currentAccount);
 
 
 
-
-
-
-        //-----------------------------------
-         Employee employee = new Employee("31","Richu_jain","morning side","13/08/1995","6478589848","richijain1995@gmail.com","manager",50000.00f,"user1","user1","North York");
-        employees.add(employee);
-        employee = new Employee("32","jain_mark","steels lane","03/06/1985","7465575889","steelslane@gmail.com","assistant manager",25000.00f,"user2","user2","North York");
-        employees.add(employee);
-        employee = new Employee("33","jisn_mark","dundas street","03/8/1985","9478679575","jisnmark@gmail.com","cashier",15000.00f,"user3","user3","North York");
-        employees.add(employee);
-        employee = new Employee("34","gai_beu","etibicoke 7","03/08/1996","8576835464","gaibeu@gmail.com","cashier",15000.00f,"user4","user4","Downtown");
-        employees.add(employee);
-        employee = new Employee("35","jaui_lio","elsemere","03/09/1998","748562837","jauilio@gmail.com","assistant manager",25000.00f,"user5","user5","North York");
-        employees.add(employee);
-        employee = new Employee("36","leo_kong","103 markham ","23/08/1995","96875644353","leokong@gmail.com","manager",50000.00f,"user6","user6","Downtown");
-        employees.add(employee);
-        employee = new Employee("37","louis_antony","78 north york","5/8/1995","8759673537","louisantony@gmail.com","peon",5000.00f,"user7","user7","North York");
-        employees.add(employee);
-        employee = new Employee("38","mark_zem","hain street","05/07/1995","875647483736","markzem@gmail.com","peon",5000.00f,"user8","user8","Downtown");
-        employees.add(employee);
-        employee = new Employee("39","zen_jieo","8 densegrove","08/08/1995","9586473627","zenjieo@gmail.com","clerk",10000.00f,"user9","user9","Downtown");
-        employees.add(employee);
-        employee = new Employee("40","don_king","99 delawana","03/08/1995","95867483933","donking@gmail.com","clerk",10000.00f,"user10","user10","North York");
-        employees.add(employee);
-        employee = new Employee("41","jai_ress","4 woburn","03/08/1995","74658693746","jairess@gmail.com","manager",50000.00f,"user11","user11","markham");
-        employees.add(employee);
-        employee = new Employee("42","nia_nins","89 young street","03/08/1996","7586769484","nianins@gmail.com","assistant manger",25000.00f,"user12","user12","markham");
-        employees.add(employee);
-        employee = new Employee("43","hain_kim","77 brimorton dr","04/08/1998","9857463527","hainkim@gmail.com","peon",5000.00f,"user13","user13","Markham");
-        employees.add(employee);
-        employee = new Employee("44","kim_ills","8 painted post ","07/08/1997","986745362","@kimillsgmail.com","clerk",10000.00f,"user14","user14","markham");
-        employees.add(employee);
-        employee = new Employee("45","hia_ilny","88 milner aveneue","06/08/1995","9857465367","hiailny@gmail.com","assitant manager",10000.00f,"user15","user15","Downtown");
-        employees.add(employee);
-        employee = new Employee("46","inmu_loi","78 york","23/08/1995","9867564736","inmuloi@gmail.com","cashier",15000.00f,"user16","user16","North York");
-        employees.add(employee);
-
-
-
-
-
+        //Creation of bank and linking employees
+        bank = new Bank("North York","84 John Tabor Lane",1);
+        banks.add(bank);
 
 
 
@@ -327,10 +221,51 @@ public class ExecutionerClass   {
         for(int i =0;i<customers.size();i++){
             if(customers.get(i).getPersonId().equals(personId)){
                 System.out.println("PersonId exists. Try Again. ");
+                System.out.println("Enter Person ID : ");
+                Scanner scanner = new Scanner(System.in);
+                personId = scanner.nextLine();
                 validatePersonId(personId);
             }
         }
         return personId;
+    }
+    private int validateDate(String birthDate){
+        int flag = 1;
+        DateFormat format = new SimpleDateFormat("yyyy/mm/dd");
+        format.setLenient(false);
+        try {
+            format.parse(birthDate);
+        } catch (ParseException e) {
+            System.out.println("Date " + birthDate + " is not valid according to " +
+                    ((SimpleDateFormat) format).toPattern() + " pattern.");
+            System.out.println("Please Try Again.");
+            flag = 0;
+        }
+        return flag;
+    }
+    private String validateContact(String contactNumber){
+        if(contactNumber.length() != 10){
+            System.out.println("Contact Number is incorrect. ");
+            System.out.println("Please try again. ");
+            System.out.println("Enter Contact Number : ");
+            Scanner scanner = new Scanner(System.in);
+            contactNumber = scanner.nextLine();
+            validateContact(contactNumber);
+        }
+        return  contactNumber;
+    }
+
+    public static boolean validateEmail(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
     private void createBankAccount() throws ParseException {
         Scanner scanner = new Scanner(System.in);
@@ -342,16 +277,30 @@ public class ExecutionerClass   {
         name = scanner.nextLine();
         System.out.println("Enter Address : ");
         address = scanner.nextLine();
-        System.out.println("Enter Date of birth : ");
-        System.out.println("yyyy/mm/dd");
-        birthDate = scanner.nextLine();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        Date d = sdf.parse(birthDate);
+        int flag =0;
+        do {
+            System.out.println("Enter Date of birth (YYYY/MM/DD): ");
+            birthDate = scanner.nextLine();
+            flag = validateDate(birthDate);
+        }while (flag==0);
         System.out.println("Enter Contact Number : ");
         contactNumber = scanner.nextLine();
-        System.out.println("Enter E-mail ID : ");
-        emailId = scanner.nextLine();
-        System.out.println("Enter ID Number : ");
+        contactNumber = validateContact(contactNumber);
+        flag=0;
+        do{
+            System.out.println("Enter E-mail ID : ");
+            emailId = scanner.nextLine();
+            boolean isEmailValid = validateEmail(emailId);
+            if(isEmailValid)
+                flag=1;
+            else{
+                System.out.println("Emaiil ID is invalid");
+                System.out.println("Please try again.");
+                flag=0;
+            }
+        }while (flag==0);
+
+        System.out.println("Enter Photo and Address ID Number : ");
         photoAddressId = scanner.nextLine();
         customer = new Customer(personId,name,address,birthDate,contactNumber,emailId,photoAddressId);
         customers.add(customer);
