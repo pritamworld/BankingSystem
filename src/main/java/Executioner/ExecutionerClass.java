@@ -597,6 +597,38 @@ public class ExecutionerClass   {
         currentAccount = new CurrentAccount("6267809033", "Current", "North York", 18500.00f,"30",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
 
+        Employee employee = new Employee("31","Richu_jain","morning side","13/08/1995","6478589848","richijain1995@gmail.com","manager",50000.00f,"user1","user1","North York");
+        employees.add(employee);
+        employee = new Employee("32","jain_mark","steels lane","03/06/1985","7465575889","steelslane@gmail.com","assistant manager",25000.00f,"user2","user2","North York");
+        employees.add(employee);
+        employee = new Employee("33","jisn_mark","dundas street","03/8/1985","9478679575","jisnmark@gmail.com","cashier",15000.00f,"user3","user3","North York");
+        employees.add(employee);
+        employee = new Employee("34","gai_beu","etibicoke 7","03/08/1996","8576835464","gaibeu@gmail.com","cashier",15000.00f,"user4","user4","Downtown");
+        employees.add(employee);
+        employee = new Employee("35","jaui_lio","elsemere","03/09/1998","748562837","jauilio@gmail.com","assistant manager",25000.00f,"user5","user5","North York");
+        employees.add(employee);
+        employee = new Employee("36","leo_kong","103 markham ","23/08/1995","96875644353","leokong@gmail.com","manager",50000.00f,"user6","user6","Downtown");
+        employees.add(employee);
+        employee = new Employee("37","louis_antony","78 north york","5/8/1995","8759673537","louisantony@gmail.com","peon",5000.00f,"user7","user7","North York");
+        employees.add(employee);
+        employee = new Employee("38","mark_zem","hain street","05/07/1995","875647483736","markzem@gmail.com","peon",5000.00f,"user8","user8","Downtown");
+        employees.add(employee);
+        employee = new Employee("39","zen_jieo","8 densegrove","08/08/1995","9586473627","zenjieo@gmail.com","clerk",10000.00f,"user9","user9","Downtown");
+        employees.add(employee);
+        employee = new Employee("40","don_king","99 delawana","03/08/1995","95867483933","donking@gmail.com","clerk",10000.00f,"user10","user10","North York");
+        employees.add(employee);
+        employee = new Employee("41","jai_ress","4 woburn","03/08/1995","74658693746","jairess@gmail.com","manager",50000.00f,"user11","user11","markham");
+        employees.add(employee);
+        employee = new Employee("42","nia_nins","89 young street","03/08/1996","7586769484","nianins@gmail.com","assistant manger",25000.00f,"user12","user12","markham");
+        employees.add(employee);
+        employee = new Employee("43","hain_kim","77 brimorton dr","04/08/1998","9857463527","hainkim@gmail.com","peon",5000.00f,"user13","user13","Markham");
+        employees.add(employee);
+        employee = new Employee("44","kim_ills","8 painted post ","07/08/1997","986745362","@kimillsgmail.com","clerk",10000.00f,"user14","user14","markham");
+        employees.add(employee);
+        employee = new Employee("45","hia_ilny","88 milner aveneue","06/08/1995","9857465367","hiailny@gmail.com","assitant manager",10000.00f,"user15","user15","Downtown");
+        employees.add(employee);
+        employee = new Employee("46","inmu_loi","78 york","23/08/1995","9867564736","inmuloi@gmail.com","cashier",15000.00f,"user16","user16","North York");
+        employees.add(employee);
 
 
 
