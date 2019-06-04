@@ -5,7 +5,7 @@ public class CurrentAccount extends BankAccount {
     private String personId;
     private float withdrawalLimit;
     private float transactionCharges;
-    private float InterestRate;
+    private float interestRate;
     private float insufficientFundCharges;
     private float minimumBalance = 100;
 
@@ -18,7 +18,7 @@ public class CurrentAccount extends BankAccount {
         this.personId = personId;
         this.withdrawalLimit = withdrawalLimit;
         this.transactionCharges = transactionCharges;
-        InterestRate = interestRate;
+        interestRate = interestRate;
         this.insufficientFundCharges = insufficientFundCharges;
         this.minimumBalance = minimumBalance;
     }
@@ -28,7 +28,7 @@ public class CurrentAccount extends BankAccount {
         this.personId = personId;
         this.withdrawalLimit = withdrawalLimit;
         this.transactionCharges = transactionCharges;
-        InterestRate = interestRate;
+        interestRate = interestRate;
         this.insufficientFundCharges = insufficientFundCharges;
         this.minimumBalance = minimumBalance;
     }
@@ -70,11 +70,11 @@ public class CurrentAccount extends BankAccount {
     }
 
     public float getInterestRate() {
-        return InterestRate;
+        return interestRate;
     }
 
     public void setInterestRate(float interestRate) {
-        InterestRate = interestRate;
+        interestRate = interestRate;
     }
 
     public float getInsufficientFundCharges() {
