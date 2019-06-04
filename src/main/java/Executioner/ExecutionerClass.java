@@ -186,23 +186,23 @@ public class ExecutionerClass   {
         savingsAccounts.add(savingsAccount);
         savingsAccount = new SavingsAccount ("738494057983","Savings","North York", 18300.00f,"6",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("123435903645","Savings","North York", 3500.06f,"7",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("123435903645","Savings","Downtown", 3500.06f,"7",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("987459347589","Savings","North York", 19300.09f,"8",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("987459347589","Savings","Downtown", 19300.09f,"8",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("987467593829","Savings","North York", 11500.080f,"9",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("987467593829","Savings","Downtown", 11500.080f,"9",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("098576364983","Savings","North York", 82300.20f,"10",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("098576364983","Savings","Downtown", 82300.20f,"10",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("156556723045","Savings","North York", 1500.04f,"11",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("156556723045","Savings","Downtown", 1500.04f,"11",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("183975898948","Savings","North York", 7020.56f,"12",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("183975898948","Savings","Markham", 7020.56f,"12",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("123445545865","Savings","North York", 15000.10f,"13",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("123445545865","Savings","Markham", 15000.10f,"13",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("738494059883","Savings","North York", 18300.00f,"14",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("738494059883","Savings","Markham", 18300.00f,"14",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
-        savingsAccount = new SavingsAccount ("123489988985","Savings","North York", 1500.00f,"15",5000.00f,0.00f,5.50f,1.00f,100.00f);
+        savingsAccount = new SavingsAccount ("123489988985","Savings","Markham", 1500.00f,"15",5000.00f,0.00f,5.50f,1.00f,100.00f);
         savingsAccounts.add(savingsAccount);
 
 
@@ -239,35 +239,35 @@ public class ExecutionerClass   {
         customers.add(customer);
 
 
-        currentAccount = new CurrentAccount("1234578901", "Current", "North York", 1500.00f,"16",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("1234578901", "Current", "North York", 25500.00f,"16",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6726780903", "Current", "North York", 1500.00f,"17",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("6726780903", "Current", "North York", 15500.00f,"17",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6726793033", "Current", "North York", 1500.00f,"18",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("6726793033", "Current", "North York", 15080.00f,"18",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("1726780903", "Current", "North York", 1500.00f,"19",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("1726780903", "Current", "North York", 17500.00f,"19",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("2726780903", "Current", "North York", 1500.00f,"20",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("2726780903", "Current", "North York", 71500.00f,"20",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("3767809033", "Current", "North York", 1500.00f,"21",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("3767809033", "Current", "Downtown", 91500.00f,"21",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("3726580233", "Current", "North York", 1500.00f,"22",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("3726580233", "Current", "Downtown", 21500.00f,"22",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("7267809033", "Current", "North York", 1500.00f,"23",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("7267809033", "Current", "Downtown", 91500.00f,"23",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6367809033", "Current", "North York", 1500.00f,"24",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("6367809033", "Current", "Downtown", 61500.00f,"24",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("5267829033", "Current", "North York", 1500.00f,"25",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("5267829033", "Current", "Downtown", 90500.00f,"25",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("2426780033", "Current", "North York", 1500.00f,"26",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("2426780033", "Current", "Markham", 3500.00f,"26",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("4267809033", "Current", "North York", 1500.00f,"27",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("4267809033", "Current", "Markham", 4500.00f,"27",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6737809033", "Current", "North York", 1500.00f,"28",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("6737809033", "Current", "Markham", 6500.00f,"28",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("2467809033", "Current", "North York", 1500.00f,"29",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("2467809033", "Current", "Markham", 7500.00f,"29",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
-        currentAccount = new CurrentAccount("6267809033", "Current", "North York", 1500.00f,"30",3000.0f,0.00f,0.02f,5.0f,20.00f);
+        currentAccount = new CurrentAccount("6267809033", "Current", "North York", 18500.00f,"30",3000.0f,0.00f,0.02f,50.0f,200.00f);
         currentAccounts.add(currentAccount);
 
 
